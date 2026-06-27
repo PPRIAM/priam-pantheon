@@ -42,3 +42,27 @@ next-env.d.ts
 
 # fichiers générés
 audit-report.html
+
+# agent et changements techniques
+sessions/
+.antigravity-install-manifest.json
+*.skill-report.html
+*.skill-analysis
+*.ai-agent-work
+*/output/
+*/workspace/
+
+# dossiers agents complets
+/.agents/
+/.agents/**/*
+
+# fichiers générés par agents/documentation
+*.md
+docs/
+*.generated
+*.cache
+*.log
+
+# types
+*.tsbuildinfo
+next-env.d.ts
