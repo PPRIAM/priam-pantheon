@@ -59,6 +59,8 @@ Decisions:
 - orchestrator -> Install Highlight.io SDK -> DONE
 - orchestrator -> Configure Highlight client, server, and next.config -> DONE
 - orchestrator -> Validate integration build compiles clean -> DONE
+- orchestrator -> Generate PDF list of installed skills -> DONE
+
 
 ## Pending
 - Boss must regenerate ADMIN_PASSWORD as bcrypt hash in `.env.local` (confirmed set up).
