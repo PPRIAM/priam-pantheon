@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mythos Admin - Projects</title>
+<!-- Typography -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#040505",
+                    "on-secondary": "#303130",
+                    "inverse-primary": "#5f5e5e",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface": "#e5e2e1",
+                    "on-primary-container": "#797777",
+                    "tertiary-fixed": "#e3e2e2",
+                    "on-tertiary": "#2f3131",
+                    "primary-fixed": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "outline-variant": "#444748",
+                    "error": "#ffb4ab",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface-tint": "#c9c6c5",
+                    "surface-container-highest": "#353434",
+                    "outline": "#8e9192",
+                    "on-tertiary-container": "#767777",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed": "#e3e2e0",
+                    "surface-dim": "#141313",
+                    "surface": "#141313",
+                    "primary-container": "#050505",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "primary": "#c9c6c5",
+                    "secondary": "#c7c6c4",
+                    "surface-container-high": "#2b2a2a",
+                    "on-primary-fixed": "#1c1b1b",
+                    "inverse-on-surface": "#313030",
+                    "secondary-container": "#464746",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-secondary-fixed": "#1b1c1b",
+                    "surface-container": "#201f1f",
+                    "surface-bright": "#3a3939",
+                    "surface-variant": "#353434",
+                    "on-tertiary-fixed-variant": "#464747",
+                    "inverse-surface": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#464746",
+                    "background": "#050505",
+                    "on-primary": "#313030",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-container": "#b5b5b3",
+                    "tertiary": "#c6c6c6",
+                    "accent-cyan": "#00F0FF",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "secondary-fixed-dim": "#c7c6c4",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "on-surface-variant": "#c4c7c7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "120px",
+                    "gutter": "32px",
+                    "stack-sm": "8px",
+                    "container-max": "1440px",
+                    "stack-md": "24px",
+                    "stack-lg": "48px"
+            },
+            "fontFamily": {
+                    "label-mono": ["Space Mono"],
+                    "headline-md": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .metallic-border {
+            border: 1px solid transparent;
+            background: linear-gradient(#050505, #050505) padding-box,
+                        linear-gradient(to bottom right, #C0C0C0, transparent) border-box;
+        }
+        .cyan-glow {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+        }
+        .cyan-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(192, 192, 192, 0.2);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-accent-cyan/30">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 bg-background/40 dark:bg-background/40 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md tracking-tighter text-on-surface dark:text-on-surface uppercase">MYTHOS ADMIN</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group hidden md:block">
+<input class="bg-surface-container-low/40 border-none border-b border-outline-variant/30 text-on-surface-variant font-label-mono text-label-mono focus:ring-0 focus:border-accent-cyan w-64 transition-all duration-500" placeholder="Search parameters..." type="text"/>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors active:scale-95">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors active:scale-95">shield_lock</button>
+<div class="h-10 w-10 rounded-full border border-outline-variant/50 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-contrast cinematic portrait of a professional administrator in a futuristic tech-noir setting. The lighting is moody and dramatic with subtle cyan rim light catching sharp facial features. The background is a vast dark void with faint digital readouts. Professional, authoritative, and sophisticated aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVk5skxtWIkgK-HdkYhkgXk-STtsNNl4Uc8faAfxZSdqmxKgzVWBe0YndQ8kihb4OKLBkWeocIycJpUaCqcuAi3Zaay7HcWAdmTTis3_uLz-Hiq2GHn4JuFc3gMrCM2s1R5_s2TjrP2d-ThjVB_XiZWPlpJvTwQqnxyI8yCMJizncr8cIJqhHso7_jHnoaTIkkbKW83S2qHFvLbT65Szhy_sZL1miCqm3mbCtOBYOMCRjVhq7BghZ76wXahEdIy6Ka6EL69oo6Zt1J"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen pt-24">
+<!-- SideNavBar (Shared Component) -->
+<nav class="fixed left-0 top-0 h-full z-40 flex flex-col pt-24 pb-8 bg-surface-container-lowest/60 dark:bg-surface-container-lowest/60 backdrop-blur-2xl border-r border-outline-variant/20 w-72 shadow-2xl">
+<div class="px-8 mb-12">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-transparent flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<p class="font-label-mono text-label-mono text-on-surface tracking-[0.2em]">PROJECT MANAGER</p>
+<p class="text-[10px] text-on-surface-variant/60 font-label-mono mt-1">Terminal Access v4.2</p>
+</div>
+</div>
+<button class="w-full py-4 bg-accent-cyan text-background font-label-mono text-label-mono font-bold rounded-lg cyan-glow transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    Create New Project
+                </button>
+</div>
+<div class="flex flex-col gap-1">
+<!-- Navigation Tabs -->
+<a class="bg-secondary-container/40 text-primary border-l-2 border-primary px-8 py-5 flex items-center gap-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest">Projects</span>
+</a>
+<a class="text-on-surface-variant px-8 py-5 flex items-center gap-4 hover:bg-surface-variant/20 hover:text-on-surface transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">perm_media</span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest">Media</span>
+</a>
+<a class="text-on-surface-variant px-8 py-5 flex items-center gap-4 hover:bg-surface-variant/20 hover:text-on-surface transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest">Settings</span>
+</a>
+</div>
+<div class="mt-auto px-8">
+<div class="glass-panel p-4 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span>
+<span class="text-[10px] font-label-mono text-on-surface-variant">NODE STATUS: OPTIMAL</span>
+</div>
+<div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+<div class="bg-accent-cyan h-full w-2/3 shadow-[0_0_10px_#00F0FF]"></div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-72 flex-1 px-section-padding pb-24">
+<!-- Page Header Section -->
+<section class="mb-16 flex justify-between items-end">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-4">Project Repository</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant/70 max-w-2xl">
+                        Access and manage all active digital artifacts. A centralized gateway for project coordination, development states, and structural assets.
+                    </p>
+</div>
+<div class="flex gap-4 mb-2">
+<button class="px-6 py-3 border border-outline-variant/30 text-on-surface font-label-mono text-label-mono hover:bg-white/5 transition-all active:scale-95">
+                        FILTER
+                    </button>
+<button class="px-6 py-3 border border-outline-variant/30 text-on-surface font-label-mono text-label-mono hover:bg-white/5 transition-all active:scale-95">
+                        EXPORT .JSON
+                    </button>
+</div>
+</section>
+<!-- Table Container with Heavy Glassmorphism -->
+<div class="glass-panel rounded-2xl overflow-hidden shadow-2xl relative">
+<!-- Decorative Light Source -->
+<div class="absolute -top-32 -right-32 w-64 h-64 bg-accent-cyan/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20">
+<th class="px-8 py-6 font-label-mono text-label-mono text-on-surface-variant/60 uppercase">Project Name</th>
+<th class="px-8 py-6 font-label-mono text-label-mono text-on-surface-variant/60 uppercase">Type</th>
+<th class="px-8 py-6 font-label-mono text-label-mono text-on-surface-variant/60 uppercase">Date</th>
+<th class="px-8 py-6 font-label-mono text-label-mono text-on-surface-variant/60 uppercase">Status</th>
+<th class="px-8 py-6 font-label-mono text-label-mono text-on-surface-variant/60 uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="px-8 py-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container overflow-hidden rounded-lg border border-outline-variant/20">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A minimalist architectural render of a brutalist structure made of obsidian and glass. Shot during the golden hour in a desert landscape. Low angle, wide perspective, high-end digital gallery aesthetic with tech-noir vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpuok1U5LxdDZp8-yd2ruxe3YLCHZ95Uu9h-Nd9DYh_xVVxHO35k2wunrHXQOhOqVgPUFe5igzcrFna7kEbew9U8wPi5CbsFlBgU9quteVK7FvS1TynGDT9hM2guwymnI9SQOLFiO4mJapI81OHxNdSNYMAp42TSigPlFEHCAPJbt7D-4STv8RS1_zq9fUtJRU2MQk6ENZv7Fy2mQHQzYPR2rNvc9yF6Slbkf3EODEkzpjBc9GXpSydF_HZyf9FFGaO1nWBAVvvvrx"/>
+</div>
+<div>
+<p class="font-headline-md text-[18px] text-on-surface mb-1 tracking-tight">Obsidian Spire</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant/50">ID: ARCH-001-X</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-8">
+<span class="px-3 py-1 bg-white/5 border border-outline-variant/20 rounded-full font-label-mono text-[10px] text-on-surface-variant">ARCHITECTURE</span>
+</td>
+<td class="px-8 py-8 font-label-mono text-[12px] text-on-surface-variant">24.05.2024</td>
+<td class="px-8 py-8">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-accent-cyan"></span>
+<span class="font-label-mono text-[11px] text-accent-cyan tracking-wider">ACTIVE</span>
+</div>
+</td>
+<td class="px-8 py-8 text-right">
+<div class="flex justify-end gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:text-accent-cyan hover:border-accent-cyan/30 transition-all">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:text-error hover:border-error/30 transition-all">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="px-8 py-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container overflow-hidden rounded-lg border border-outline-variant/20">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Macro photography of liquid metal morphing into intricate geometric shapes. The scene is dark with deep black reflections and sharp silver highlights. Ethereal glow in the background. Ultra-modern, premium digital art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtmXXdMhbIp4B8TGJ0rrxlKSNI4I97FWqoiBpfZZ1zqAa-xZ8xke9hIEkW7kOE93F0ad83rHiwddHihWu3ElPzMi7KKH7QC0ZNn1GYtYV_0EWO-fg7G6p_Ok6RUQN5qjvwXy4lk2WF9ZuSs0eytlrBjLKJQFU2HUmtKJ2gU_WrK6f1HYJAoC79MhE6MmtOIPoqBivUQfU1_lcNHcj-LPfe2Bl9nmtzoGN0VoIBvzC7PtPea62r64I6dIUW_ja92gsYTku_M58hTSJf"/>
+</div>
+<div>
+<p class="font-headline-md text-[18px] text-on-surface mb-1 tracking-tight">Kinetic Fluidity</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant/50">ID: VART-042-K</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-8">
+<span class="px-3 py-1 bg-white/5 border border-outline-variant/20 rounded-full font-label-mono text-[10px] text-on-surface-variant">VISUAL ART</span>
+</td>
+<td class="px-8 py-8 font-label-mono text-[12px] text-on-surface-variant">18.04.2024</td>
+<td class="px-8 py-8">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant/40"></span>
+<span class="font-label-mono text-[11px] text-on-surface-variant/60 tracking-wider">ARCHIVED</span>
+</div>
+</td>
+<td class="px-8 py-8 text-right">
+<div class="flex justify-end gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:text-accent-cyan hover:border-accent-cyan/30 transition-all">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:text-error hover:border-error/30 transition-all">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="px-8 py-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container overflow-hidden rounded-lg border border-outline-variant/20">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A detailed high-tech futuristic circuit board design that resembles a city layout from a bird's eye view. Glowing neon traces in deep blue and cyan against a matte black surface. Cinematic lighting with shallow depth of field. Professional and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAh2iGIrOwMU4b1Qtb7uMCUlsq4qpfHnlywj0lPCDbngcUs34Lh5iQRHb3-8r5-MIqqzeQt4G729PHcjsr8e5z7MQ_TufVC9nI3_K9GkBfp_j2tXb-9zEefXF0tmAts7wTAGppv2r-w2viNWrwAmNv7D1uEjD_n6tlVxv9eNVpS3mEnm-N5xRf-piD2mnrxDMJOyWxEfaq31jKI5KH4nbS8l0jj5AqK239Hy0bMzM1aR_77_qYPjf8rt_gJNNDf2vAxItgFpb8nmO0"/>
+</div>
+<div>
+<p class="font-headline-md text-[18px] text-on-surface mb-1 tracking-tight">Neon Schematic</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant/50">ID: TECH-772-S</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-8">
+<span class="px-3 py-1 bg-white/5 border border-outline-variant/20 rounded-full font-label-mono text-[10px] text-on-surface-variant">INTERFACE</span>
+</td>
+<td class="px-8 py-8 font-label-mono text-[12px] text-on-surface-variant">02.04.2024</td>
+<td class="px-8 py-8">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-500/80"></span>
+<span class="font-label-mono text-[11px] text-yellow-500/80 tracking-wider">PENDING</span>
+</div>
+</td>
+<td class="px-8 py-8 text-right">
+<div class="flex justify-end gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:text-accent-cyan hover:border-accent-cyan/30 transition-all">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:text-error hover:border-error/30 transition-all">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Footer -->
+<div class="px-8 py-6 flex justify-between items-center bg-white/[0.02] border-t border-outline-variant/10">
+<p class="font-label-mono text-[10px] text-on-surface-variant/40 uppercase tracking-widest">Displaying 3 of 48 entries</p>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant/10 text-on-surface-variant hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-white/10 text-on-surface font-label-mono text-[10px]">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant/10 text-on-surface-variant hover:bg-white/5 transition-all font-label-mono text-[10px]">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant/10 text-on-surface-variant hover:bg-white/5 transition-all font-label-mono text-[10px]">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant/10 text-on-surface-variant hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stats Bar (Bento Pattern) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+<div class="glass-panel p-8 rounded-2xl border border-outline-variant/10 group cursor-pointer hover:border-accent-cyan/30 transition-all">
+<p class="font-label-mono text-[10px] text-on-surface-variant/50 uppercase tracking-widest mb-2">Total Deployments</p>
+<div class="flex items-end justify-between">
+<span class="font-headline-md text-[44px] text-on-surface leading-none">128</span>
+<span class="font-label-mono text-accent-cyan text-[12px]">+12.4%</span>
+</div>
+</div>
+<div class="glass-panel p-8 rounded-2xl border border-outline-variant/10 group cursor-pointer hover:border-accent-cyan/30 transition-all">
+<p class="font-label-mono text-[10px] text-on-surface-variant/50 uppercase tracking-widest mb-2">Active Entities</p>
+<div class="flex items-end justify-between">
+<span class="font-headline-md text-[44px] text-on-surface leading-none">42</span>
+<span class="material-symbols-outlined text-on-surface-variant/20 text-[32px]">hub</span>
+</div>
+</div>
+<div class="glass-panel p-8 rounded-2xl border border-outline-variant/10 group cursor-pointer hover:border-accent-cyan/30 transition-all">
+<p class="font-label-mono text-[10px] text-on-surface-variant/50 uppercase tracking-widest mb-2">Server Latency</p>
+<div class="flex items-end justify-between">
+<span class="font-headline-md text-[44px] text-on-surface leading-none">14<span class="text-[20px] font-light">ms</span></span>
+<div class="flex gap-0.5 pb-2">
+<div class="w-1 h-3 bg-accent-cyan/40"></div>
+<div class="w-1 h-5 bg-accent-cyan/60"></div>
+<div class="w-1 h-4 bg-accent-cyan/80"></div>
+<div class="w-1 h-6 bg-accent-cyan"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-accent-cyan/5 blur-[180px] rounded-full"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-primary/5 blur-[220px] rounded-full"></div>
+</div>
+<script>
+        // Subtle micro-interaction for rows
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mousemove', (e) => {
+                const rect = row.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                row.style.setProperty('--mouse-x', `${x}px`);
+                row.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

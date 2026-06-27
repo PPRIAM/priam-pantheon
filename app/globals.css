@@ -1,0 +1,824 @@
+@import "tailwindcss";
+
+/* Déclarations des polices locales personnalisées */
+@font-face {
+  font-family: 'Nagasaki';
+  src: url('/fonts/nagasaki.woff2') format('woff2'),
+       url('/fonts/nagasaki.woff') format('woff'),
+       url('/fonts/nagasaki.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeoForm';
+  src: url('/fonts/geoform.woff2') format('woff2'),
+       url('/fonts/geoform.woff') format('woff'),
+       url('/fonts/geoform.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   PRIAM — Système de design Neo-Olympien Dark Mythos
+   Palette: Void Black + Lime Électrique + Ivoire
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* Couleurs de fond */
+    --void-black:    #050505;
+    --obsidian:      #050505;
+    --obsidian-2:    #0A0A0A;
+    --obsidian-3:    #111111;
+    --obsidian-4:    #1A1A1A;
+
+    /* Accent — Lime Électrique */
+    --lime:          #BEFF39;
+    --lime-light:    #D4FF72;
+    --lime-dim:      #8BAF26;
+    --lime-glow:     rgba(190, 255, 57, 0.15);
+    --lime-border:   rgba(190, 255, 57, 0.25);
+
+    /* Texte */
+    --ivory:         #F5EDD8;
+    --ivory-dim:     #A89880;
+    --ivory-muted:   #635848;
+
+    /* Bordures subtiles */
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-mid:    rgba(255, 255, 255, 0.10);
+    --border-bright: rgba(255, 255, 255, 0.12);
+
+    /* Surfaces verre — glassmorphisme */
+    --glass-surface:      rgba(255, 255, 255, 0.03);
+    --glass-border:       rgba(255, 255, 255, 0.08);
+    --glass-border-strong: rgba(255, 255, 255, 0.15);
+
+    /* Métallique argent */
+    --metallic:        rgba(255, 255, 255, 0.10);
+    --metallic-strong: rgba(255, 255, 255, 0.20);
+
+    /* Polices de caractères */
+    --font-nagasaki:   'Nagasaki', Impact, 'Arial Black', sans-serif;
+    --font-geoform:    'GeoForm', 'Century Gothic', Arial, sans-serif;
+    --font-montserrat: var(--font-montserrat), sans-serif;
+    --font-space-mono: var(--font-space-mono), monospace;
+
+    /* Variables de rétrocompatibilité */
+    --font-playfair:   var(--font-geoform);
+    --font-geist:      var(--font-montserrat);
+
+
+    /* Rayons */
+    --radius-sm:     4px;
+    --radius-md:     8px;
+    --radius-lg:     16px;
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Z-index — couches système */
+    --z-base:    1;
+    --z-overlay: 50;
+    --z-nav:     80;
+    --z-modal:   100;
+    --z-grain:   200;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--lime-dim) var(--obsidian-2);
+  }
+
+  html::-webkit-scrollbar {
+    width: 4px;
+  }
+  html::-webkit-scrollbar-track {
+    background: var(--obsidian-2);
+  }
+  html::-webkit-scrollbar-thumb {
+    background: var(--lime-dim);
+    border-radius: 2px;
+  }
+
+  body {
+    background-color: var(--void-black);
+    color: var(--ivory);
+    /* Police de corps — Geist + Outfit + fallbacks */
+    font-family: var(--font-geist), var(--font-outfit), sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Sélection de texte */
+  ::selection {
+    background-color: var(--lime);
+    color: var(--obsidian);
+  }
+}
+
+/* ============================================================
+   Typographie — Hiérarchie Éditoriale
+   ============================================================ */
+
+/* Police d'affichage — Nagasaki (Display) */
+.font-display {
+  font-family: var(--font-nagasaki), Impact, 'Arial Black', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.0;
+}
+
+/* Police d'affichage — Titre d'affichage large (Nagasaki) */
+.display-heading {
+  font-family: var(--font-nagasaki), Impact, 'Arial Black', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: normal;
+  text-transform: uppercase;
+  line-height: 1.0;
+  letter-spacing: 0.05em;
+}
+
+/* Police d'interface — Geist */
+.font-ui {
+  font-family: var(--font-geist), system-ui, sans-serif;
+}
+
+/* Police mono — Space Mono pour étiquettes */
+.font-mono {
+  font-family: var(--font-space-mono), "Courier New", monospace;
+}
+
+/* ============================================================
+   Carte Glassmorphique — Surface profonde
+   ============================================================ */
+
+.glass-card {
+  background: var(--glass-surface);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+/* Surface de verre premium */
+.premium-glass {
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01);
+}
+
+/* ============================================================
+   Bordure Métallique
+   ============================================================ */
+
+.metallic-border {
+  border: 0.5px solid transparent;
+  background-image: linear-gradient(#050505, #050505), linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* ============================================================
+   Lueur Lime au survol
+   ============================================================ */
+
+.lime-glow-hover {
+  transition: box-shadow 0.3s var(--ease-out-expo);
+}
+.lime-glow-hover:hover {
+  box-shadow: 0 0 0 1px var(--lime-border), 0 0 30px var(--lime-glow);
+}
+
+/* ============================================================
+   Étiquette espace mono — badge technique
+   ============================================================ */
+
+.label-mono {
+  font-family: var(--font-space-mono), 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Texte technique monospace avec couleur Lime */
+.tech-label {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+/* ============================================================
+   Fond grille subtle — Lime à très faible opacité
+   ============================================================ */
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(190, 255, 57, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(190, 255, 57, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================================
+   Motif architecturale — Clé grecque
+   ============================================================ */
+
+.greek-key-border {
+  position: relative;
+}
+
+.greek-key-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--lime-border);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================================
+   Bouton Principal — Lime sur Obsidien
+   ============================================================ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--lime);
+  color: var(--obsidian);
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.25s var(--ease-out-expo),
+    transform 0.2s var(--ease-out-expo),
+    box-shadow 0.25s var(--ease-out-expo);
+}
+
+.btn-primary:hover {
+  background: var(--lime-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--lime-glow);
+}
+
+.btn-primary:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* ============================================================
+   Bouton Secondaire — Ghost
+   ============================================================ */
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--ivory);
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  border-radius: 9999px;
+  border: 1px solid var(--border-mid);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    border-color 0.25s var(--ease-out-expo),
+    color 0.25s var(--ease-out-expo),
+    transform 0.2s var(--ease-out-expo);
+}
+
+.btn-ghost:hover {
+  border-color: var(--lime);
+  color: var(--lime);
+  transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* ============================================================
+   Étiquette de catégorie
+   ============================================================ */
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--lime-glow);
+  color: var(--lime);
+  border: 1px solid var(--lime-border);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-family: var(--font-space-mono), monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Section — Espacement Généreux
+   ============================================================ */
+
+.section-padding {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
+.section-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* ============================================================
+   Titre de section — Style éditorial
+   ============================================================ */
+
+.section-eyebrow {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 1rem;
+}
+
+.section-heading {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ivory);
+}
+
+/* ============================================================
+   Ligne séparatrice
+   ============================================================ */
+
+.divider-lime {
+  width: 3rem;
+  height: 1px;
+  background: var(--lime);
+  margin-top: 1.5rem;
+}
+
+/* ============================================================
+   Animations de base
+   ============================================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px var(--lime-glow); }
+  50%       { box-shadow: 0 0 40px rgba(190, 255, 57, 0.3); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s var(--ease-out-expo) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ============================================================
+   Grille Bento — Services Arsenal
+   ============================================================ */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-subtle);
+}
+
+@media (max-width: 1023px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bento-cell {
+  background: var(--obsidian-2);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.3s var(--ease-out-expo),
+    box-shadow 0.3s var(--ease-out-expo);
+}
+
+.bento-cell:hover {
+  background: var(--obsidian-3);
+}
+
+.bento-cell-large {
+  grid-column: span 2;
+}
+
+@media (max-width: 1023px) {
+  .bento-cell-large {
+    grid-column: span 1;
+  }
+}
+
+/* ============================================================
+   Effet de particules — héro
+   ============================================================ */
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--lime);
+  opacity: 0;
+  animation: particleDrift linear infinite;
+  pointer-events: none;
+}
+
+@keyframes particleDrift {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  10% {
+    opacity: 0.6;
+    transform: translateY(-20px) scale(1);
+  }
+  90% {
+    opacity: 0.2;
+    transform: translateY(-120px) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px) scale(0);
+  }
+}
+
+/* ============================================================
+   Overlay projet — Modal
+   ============================================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: var(--obsidian-3);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* ============================================================
+   Texture grain (overlay fixe)
+   ============================================================ */
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-grain);
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* ============================================================
+   Grille de fond — héro
+   ============================================================ */
+
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Champ de formulaire — style glassmorphique
+   ============================================================ */
+
+.form-field {
+  width: 100%;
+  background: var(--obsidian-3);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1.25rem;
+  color: var(--ivory);
+  font-family: var(--font-geist), sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition:
+    border-color 0.2s var(--ease-out-expo),
+    box-shadow 0.2s var(--ease-out-expo);
+}
+
+.form-field:focus {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 3px var(--lime-glow);
+}
+
+.form-field::placeholder {
+  color: var(--ivory-muted);
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   Animation shimmer — squelettes de chargement
+   ============================================================ */
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--obsidian-2) 25%,
+    var(--obsidian-3) 50%,
+    var(--obsidian-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ============================================================
+   Composants Premium — Intégration Uiverse Galaxy
+   ============================================================ */
+
+/* Menu Hamburger Morphing SVG */
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  height: 1.75em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger .line {
+  fill: none;
+  stroke: var(--ivory);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.3s ease;
+}
+
+.hamburger:hover .line {
+  stroke: var(--lime);
+}
+
+.hamburger .line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+/* Formulaire de Contact — Floating Labels & Premium Focus */
+.inputBox {
+  position: relative;
+  width: 100%;
+}
+
+.inputBox input,
+.inputBox textarea {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  outline: none;
+  background: var(--obsidian-3);
+  border-radius: var(--radius-md);
+  color: var(--ivory);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-geist), sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
+}
+
+.inputBox input:focus,
+.inputBox textarea:focus {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 3px var(--lime-glow);
+}
+
+.inputBox span {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  transition: 0.3s var(--ease-out-expo);
+  background: transparent;
+  padding: 0 0.25rem;
+}
+
+.inputBox textarea ~ span {
+  top: 1.5rem;
+  transform: none;
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:not(:placeholder-shown) ~ span,
+.inputBox textarea:focus ~ span,
+.inputBox textarea:not(:placeholder-shown) ~ span {
+  font-size: 0.65rem;
+  transform: translateX(-0.5rem) translateY(-2.2rem);
+  color: var(--lime);
+  background: var(--void-black);
+  padding: 0 0.5rem;
+}
+
+.inputBox textarea:focus ~ span,
+.inputBox textarea:not(:placeholder-shown) ~ span {
+  transform: translateX(-0.5rem) translateY(-2.4rem);
+}
+
+/* Spinner Orbital Premium (Écran de Chargement) */
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.spinner-orbital {
+  width: 5rem;
+  transform-origin: center;
+  animation: rotateSpinner 2s linear infinite;
+}
+
+.spinner-orbital circle {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 2.5;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px var(--lime));
+  animation: dashSpinner 1.5s ease-in-out infinite;
+}
+
+@keyframes rotateSpinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dashSpinner {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dashoffset: -125px;
+  }
+}
+
+/* Effet Balayage Brillance Boutons */
+.btn-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-sweep:hover::after {
+  left: 150%;
+}
+

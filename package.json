@@ -1,0 +1,49 @@
+{
+  "name": "priam-pantheon",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:seed": "npx ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "db:reset": "prisma migrate reset --force",
+    "video:dev": "npm --prefix video run dev",
+    "video:render": "npm --prefix video run render"
+  },
+  "dependencies": {
+    "@launchdarkly/node-server-sdk": "^9.11.3",
+    "@phosphor-icons/react": "^2.1.10",
+    "@prisma/client": "^6.19.3",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/postprocessing": "^3.0.4",
+    "@types/three": "^0.184.1",
+    "bcryptjs": "^3.0.3",
+    "gsap": "^3.15.0",
+    "jimp": "^0.22.0",
+    "launchdarkly-react-client-sdk": "^3.9.2",
+    "motion": "^12.40.0",
+    "next": "16.2.9",
+    "next-auth": "^5.0.0-beta.31",
+    "prisma": "^6.19.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "resend": "^6.14.0",
+    "three": "^0.184.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

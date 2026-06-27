@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MYTHOS | Digital Legends</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Space+Mono&amp;family=Inter:wght@300;400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "on-primary-fixed": "#1c1b1b",
+                    "inverse-surface": "#e5e2e1",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#464746",
+                    "tertiary-container": "#040505",
+                    "primary": "#c9c6c5",
+                    "tertiary": "#c6c6c6",
+                    "surface-variant": "#353434",
+                    "on-error": "#690005",
+                    "primary-fixed": "#e5e2e1",
+                    "secondary": "#c7c6c4",
+                    "on-primary-container": "#797777",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed": "#1b1c1b",
+                    "on-error-container": "#ffdad6",
+                    "background": "#141313",
+                    "on-surface-variant": "#c4c7c7",
+                    "outline-variant": "#444748",
+                    "surface-container-highest": "#353434",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-tertiary-container": "#767777",
+                    "outline": "#8e9192",
+                    "tertiary-fixed": "#e3e2e2",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "surface": "#141313",
+                    "on-tertiary-fixed-variant": "#464747",
+                    "on-surface": "#e5e2e1",
+                    "on-primary-fixed-variant": "#474646",
+                    "inverse-primary": "#5f5e5e",
+                    "surface-dim": "#141313",
+                    "secondary-container": "#464746",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "secondary-fixed": "#e3e2e0",
+                    "on-primary": "#313030",
+                    "on-secondary-container": "#b5b5b3",
+                    "on-secondary": "#303130",
+                    "surface-container-high": "#2b2a2a",
+                    "surface-container": "#201f1f",
+                    "inverse-on-surface": "#313030",
+                    "on-tertiary": "#2f3131",
+                    "primary-container": "#050505",
+                    "surface-bright": "#3a3939",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-tint": "#c9c6c5",
+                    "secondary-fixed-dim": "#c7c6c4",
+                    "cyan-accent": "#00F0FF"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "32px",
+                    "stack-md": "24px",
+                    "stack-lg": "48px",
+                    "stack-sm": "8px",
+                    "container-max": "1440px",
+                    "section-padding": "120px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "headline-md": ["Playfair Display", "serif"],
+                    "display-lg": ["Playfair Display", "serif"],
+                    "label-mono": ["Space Mono", "monospace"],
+                    "display-lg-mobile": ["Playfair Display", "serif"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "400"}],
+                    "display-lg-mobile": ["44px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .metallic-border {
+            border: 0.5px solid transparent;
+            background-image: linear-gradient(#050505, #050505), linear-gradient(135deg, #C0C0C0 0%, rgba(192, 192, 192, 0) 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .cyan-glow {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+        }
+
+        .cyan-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(20, 19, 19, 0.4);
+            border: 0.5px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.03) 0%, transparent 70%);
+        }
+
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/40 backdrop-blur-xl border-b border-white/10 h-20">
+<nav class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-full">
+<div class="font-display-lg text-headline-md text-on-surface tracking-tighter" style="font-family: 'Playfair Display';">MYTHOS</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-body-md text-body-md uppercase tracking-widest text-primary font-bold after:content-[''] after:block after:w-1 after:h-1 after:bg-primary after:rounded-full after:mx-auto after:mt-1" href="#work">Work</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#services">Services</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#about">About</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">Contact</a>
+</div>
+<button class="px-8 py-2 rounded-full border border-outline-variant/30 text-label-mono uppercase tracking-[0.2em] hover:bg-white/5 transition-all duration-300 active:scale-95">
+                Connect
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center text-center px-gutter pt-20 hero-gradient">
+<div class="max-w-4xl space-y-stack-lg">
+<span class="font-label-mono text-cyan-accent uppercase tracking-[0.4em] block opacity-80" data-aos="fade-up">Est. MMXXIV</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface" data-aos="fade-up">
+                    CRAFTING DIGITAL LEGENDS
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    High-fidelity interfaces at the intersection of myth and machine. We bridge the gap between ancient authority and futuristic precision.
+                </p>
+<div class="pt-stack-md" data-aos="fade-up" data-aos-delay="200">
+<button class="bg-primary text-on-primary font-label-mono py-5 px-12 rounded-full cyan-glow hover:scale-105 transition-all duration-500 uppercase tracking-widest text-sm">
+                        Start a Project
+                    </button>
+</div>
+</div>
+<!-- Atmospheric Element -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-20">
+<span class="material-symbols-outlined animate-bounce text-3xl">expand_more</span>
+</div>
+</section>
+<!-- Selected Works -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto" id="work">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg gap-stack-md">
+<h2 class="font-display-lg text-headline-md border-l-2 border-cyan-accent pl-6">SELECTED ARTIFACTS</h2>
+<p class="font-label-mono text-on-surface-variant/60 uppercase">01 // PROJECTS</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+<!-- Project 1 -->
+<div class="group hover-lift">
+<div class="aspect-[16/10] metallic-border overflow-hidden relative mb-stack-md">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" data-alt="A cinematic, high-contrast 3D rendering of a futuristic architectural structure floating in a dark, atmospheric void. The scene is illuminated by thin strips of cyan neon light reflecting off metallic silver surfaces. The overall aesthetic is dark and sophisticated, matching a tech-noir digital gallery vibe with extreme negative space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS6I4kAHCDZvjJ8opTWnltkM9sOaWaScJ4poYuBfxBoOdDvfJCgMK65uI9mtoAlC0G7zknQsO3bzaXCVimA6Q7iCEKjnCRnhUBH8wDRn2kHlbyyBEVirE5JbqSyJIlBV6pb1B6aJxpwYaWQX8_0jcT316AZOnJ70LcnqPHeoG_OhTkcz9b1SAShbrJRWPHND1ikKqg19kIVj1yb2NlqhlDCsLy_6RgWdkzjeh3-FQSwVam-90dE1NvFsK_bJ0wgx2zLcAdxSRHxC7I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-40"></div>
+</div>
+<h3 class="font-body-md text-xl font-light tracking-wide text-on-surface">AETHER ARCHIVES</h3>
+<p class="font-label-mono text-[10px] text-cyan-accent/60 mt-1 uppercase">Technical Architecture • 2024</p>
+</div>
+<!-- Project 2 -->
+<div class="group hover-lift md:mt-24">
+<div class="aspect-[16/10] metallic-border overflow-hidden relative mb-stack-md">
+<img class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity duration-700" data-alt="A minimalist digital interface showcased on a floating screen against a deep black background. The interface features elegant serif typography and translucent glassmorphic components with thin metallic borders. Soft cyan light glows from beneath the screen, creating a sense of depth and prestige in a tech-noir environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMKGWsQfSxusQ__o5LaHtMHcqKFrZ9iJwAOCueXBjz0MjBjb2gD8JAVrm0Tl57QYVjMAJeKT_IzqhtJlMCxHlKinvBT24EB7yQwMZnvyxDz-drWNoixSglthHCcEpe5nZbutG03V2bFeIa1l6RpwPIg8vpBWyCTyyZrSTVCyNTy37Ue24Sl8hoFfe80yIvtH-NKrjXWrUr83G6c_07kf1W1iGmwDiSs3_s_S3DQdNqasNZaXmac3P-gkxXXZqVJtGud5yjBK1a99vG"/>
+</div>
+<h3 class="font-body-md text-xl font-light tracking-wide text-on-surface">NEON ORACLE</h3>
+<p class="font-label-mono text-[10px] text-cyan-accent/60 mt-1 uppercase">Creative Strategy • 2023</p>
+</div>
+<!-- Project 3 -->
+<div class="group hover-lift">
+<div class="aspect-[16/10] metallic-border overflow-hidden relative mb-stack-md">
+<img class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700" data-alt="Close-up shot of a sophisticated mechanical device with intricate silver engravings and glowing cyan circuits. The background is a pitch-black void, emphasizing the fine details and the interplay between historical craftsmanship and futuristic technology. High-end lighting creates sharp reflections on the metallic edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSZ6I3yjBzwzeMSa14xiMUxqoRtm7pz9CQWZAxLRvcvHDAhwjdtXhQqND9ItEfbtJbXk0qEbjBs2Jz-LUXZfMyuJGT4jYTTei41Kl9pzhD8pQIfi8C365CgnyVaEG0TUZwzmFO66qFqizBiqg4ctfGiGIabD5K9yktSLqTkz4IkMg-3ST7L2qojuRoQ4RNieAdBwb9eXVrmvFz1MDIRfetyiSnc9SaMslwPvhIcJ8AMUNz3PhYd6QqD_afr3XegbFmJWmwcfeWeZ2_"/>
+</div>
+<h3 class="font-body-md text-xl font-light tracking-wide text-on-surface">CHRONOS PROTOCOL</h3>
+<p class="font-label-mono text-[10px] text-cyan-accent/60 mt-1 uppercase">Interface Design • 2024</p>
+</div>
+<!-- Project 4 -->
+<div class="group hover-lift md:mt-24">
+<div class="aspect-[16/10] metallic-border overflow-hidden relative mb-stack-md">
+<img class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-opacity duration-700" data-alt="A vast digital landscape featuring abstract geometric monoliths standing in a dark mist. The scene is rendered in deep shades of black and charcoal, with subtle silver highlights on the sharp edges of the monoliths. A single, faint pulse of cyan light emanates from the center, conveying mystery and technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8-uNTibsNxMNfaBTuloHNl24kJ74DAzj1YVGjy9rsRBsG5JNkA0TgcCR-c8QRNQqXYs79VjHfZHbf3ElGug2bcYJXRzuau1swVPFDhXJAQrdeTHSBcL1h4mwU9dmVzQvCPKka7Nt2aRMxhSWWldVB5kLkHlA3woOMUjJvZATPVpp0By8awXBJB3cSMzF7op7MxfNZQc7pgITJB_syyCXSw8lFc1Vw99OVIqIrrTflJA-gr8psPExF4iW5ku-xznwXMzKAgxoniF9L"/>
+</div>
+<h3 class="font-body-md text-xl font-light tracking-wide text-on-surface">VOID EXPLORER</h3>
+<p class="font-label-mono text-[10px] text-cyan-accent/60 mt-1 uppercase">Product Identity • 2023</p>
+</div>
+</div>
+</section>
+<!-- Arsenal (Services) -->
+<section class="py-section-padding bg-surface-container-lowest/50" id="services">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="mb-stack-lg text-center">
+<h2 class="font-display-lg text-headline-md mb-4 uppercase tracking-tighter">THE ARSENAL</h2>
+<p class="font-label-mono text-cyan-accent text-sm tracking-[0.3em]">SERVICES &amp; CAPABILITIES</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-panel p-10 hover:border-cyan-accent/40 transition-colors duration-500">
+<span class="material-symbols-outlined text-cyan-accent text-4xl mb-6">layers</span>
+<h4 class="font-display-lg text-2xl mb-4">Interface Design</h4>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                            Crafting high-fidelity digital canvases that prioritize clarity, cinematic scale, and emotional resonance.
+                        </p>
+</div>
+<div class="glass-panel p-10 hover:border-cyan-accent/40 transition-colors duration-500">
+<span class="material-symbols-outlined text-cyan-accent text-4xl mb-6">insights</span>
+<h4 class="font-display-lg text-2xl mb-4">Creative Strategy</h4>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                            Defining the narrative soul of your brand through rigorous research and mythological storytelling.
+                        </p>
+</div>
+<div class="glass-panel p-10 hover:border-cyan-accent/40 transition-colors duration-500">
+<span class="material-symbols-outlined text-cyan-accent text-4xl mb-6">terminal</span>
+<h4 class="font-display-lg text-2xl mb-4">Technical Architecture</h4>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                            Building robust foundations that bridge complex logic with seamless, invisible execution.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Sanctum (About) -->
+<section class="py-section-padding px-gutter text-center relative overflow-hidden" id="about">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="w-full h-full flex items-center justify-center text-[20vw] font-display-lg leading-none select-none">MYTH</div>
+</div>
+<div class="max-w-3xl mx-auto relative z-10">
+<p class="font-display-lg text-4xl md:text-6xl text-on-surface italic mb-stack-lg leading-tight">
+                    "Design is the modern alchemy; turning base code into golden experiences."
+                </p>
+<div class="w-12 h-px bg-cyan-accent mx-auto mb-stack-lg"></div>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+                    Based in the shadows of the digital realm, MYTHOS is a boutique studio dedicated to those who demand prestige. We don't just build websites; we create digital sanctuaries for the bold and the visionary. Our process is a blend of precision engineering and artistic intuition.
+                </p>
+</div>
+</section>
+<!-- Oracle (Contact) -->
+<section class="py-section-padding px-gutter bg-surface-container-lowest/30" id="contact">
+<div class="max-w-2xl mx-auto text-center">
+<h2 class="font-display-lg text-headline-md mb-stack-md uppercase tracking-tighter">THE ORACLE</h2>
+<p class="font-body-md text-on-surface-variant mb-stack-lg">State your intent. We shall respond when the stars align.</p>
+<form class="space-y-10 text-left">
+<div class="relative group">
+<label class="font-label-mono text-[10px] text-cyan-accent/60 uppercase absolute -top-5 left-0">Your Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/50 py-4 px-0 focus:ring-0 focus:border-cyan-accent transition-all duration-500 placeholder-white/10" placeholder="AECIUS" type="text"/>
+</div>
+<div class="relative group">
+<label class="font-label-mono text-[10px] text-cyan-accent/60 uppercase absolute -top-5 left-0">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/50 py-4 px-0 focus:ring-0 focus:border-cyan-accent transition-all duration-500 placeholder-white/10" placeholder="ORACLE@MYTHOS.STUDIO" type="email"/>
+</div>
+<div class="relative group">
+<label class="font-label-mono text-[10px] text-cyan-accent/60 uppercase absolute -top-5 left-0">Message</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/50 py-4 px-0 focus:ring-0 focus:border-cyan-accent transition-all duration-500 placeholder-white/10" placeholder="TELL US YOUR LEGEND..." rows="4"></textarea>
+</div>
+<div class="text-center pt-6">
+<button class="bg-transparent border border-cyan-accent text-cyan-accent font-label-mono py-4 px-16 rounded-full hover:bg-cyan-accent hover:text-background transition-all duration-500 uppercase tracking-widest text-sm cyan-glow">
+                            Summon
+                        </button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-outline-variant/20 bg-transparent">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-stack-md">
+<div class="font-display-lg text-body-lg text-on-surface">MYTHOS</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant flex gap-8">
+<a class="hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Behance</a>
+</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant opacity-40">
+                © 2024 DARK MYTHOS STUDIO. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[data-aos="fade-up"]').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "all 0.8s cubic-bezier(0.2, 0, 0.2, 1)";
+            observer.observe(el);
+        });
+
+        // Parallax effect on scroll for atmospheric typography
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.absolute.inset-0.opacity-10');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.15}px)`;
+            }
+        });
+    </script>
+</body></html>

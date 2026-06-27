@@ -1,0 +1,40 @@
+// Schéma Prisma — Base de données Neo-Olympien
+// SQLite pour le développement, PostgreSQL pour la production
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  type        String
+  status      String   @default("DRAFT")
+  clientName  String
+  role        String
+  problem     String
+  approach    String
+  solution    String
+  roi         String?
+  coverImage  String?
+  gallery     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  clientName  String
+  role        String
+  company     String
+  quote       String
+  avatarImage String?
+  rating      Int      @default(5)
+  createdAt   DateTime @default(now())
+}

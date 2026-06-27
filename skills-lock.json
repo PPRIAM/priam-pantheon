@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "skills": {
+    "audit-full": {
+      "source": "yonatangross/orchestkit",
+      "sourceType": "github",
+      "skillPath": "plugins/ork/skills/audit-full/SKILL.md",
+      "computedHash": "e350071c4d7854d8cffbf2a856f375f20d4876325ac260eb4afe99edd7d9c921"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "781bd6d3f9b19f8c9af6b53d8d0e4876d0183841b565db34ca7092ffa412d111"
+    },
+    "higgsfield-generate": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-generate/SKILL.md",
+      "computedHash": "d8e3f14fbb59760f3f05ad6b85a3bb8152cdb28553822d0d539a7090d9412518"
+    },
+    "higgsfield-marketplace-cards": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-marketplace-cards/SKILL.md",
+      "computedHash": "bfc8753f857d0cedb630d3f9c0801ecb2f6ba799de093b8cefccf1550cf7608b"
+    },
+    "higgsfield-product-photoshoot": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-product-photoshoot/SKILL.md",
+      "computedHash": "b1ad2f39573cd04eb32af603a641a87b114ad69b83c0ee0e38ff37dbbe9663b3"
+    },
+    "higgsfield-soul-id": {
+      "source": "higgsfield-ai/skills",
+      "sourceType": "github",
+      "skillPath": "higgsfield-soul-id/SKILL.md",
+      "computedHash": "6d468aafc15bacee9f4e86c2726e8351e18fe588301974332535db5a666de7c6"
+    },
+    "launchdarkly-flag-cleanup": {
+      "source": "launchdarkly/ai-tooling",
+      "sourceType": "github",
+      "skillPath": "skills/feature-flags/launchdarkly-flag-cleanup/SKILL.md",
+      "computedHash": "66814fd8b41fc7bee91ef394a29bf0161437cec2248dd8e2ed2b13f32f889ab5"
+    },
+    "launchdarkly-flag-create": {
+      "source": "launchdarkly/ai-tooling",
+      "sourceType": "github",
+      "skillPath": "skills/feature-flags/launchdarkly-flag-create/SKILL.md",
+      "computedHash": "e7cbdc430248fdc6faa384c8bf640f05211a2f812ec3ffd134b5b02f500055fe"
+    },
+    "launchdarkly-flag-discovery": {
+      "source": "launchdarkly/ai-tooling",
+      "sourceType": "github",
+      "skillPath": "skills/feature-flags/launchdarkly-flag-discovery/SKILL.md",
+      "computedHash": "cdcd3d427e6783b1479ef8567b6c5574f91f8fbe55df1bd31fa35ac2b661490d"
+    },
+    "launchdarkly-flag-targeting": {
+      "source": "launchdarkly/ai-tooling",
+      "sourceType": "github",
+      "skillPath": "skills/feature-flags/launchdarkly-flag-targeting/SKILL.md",
+      "computedHash": "b301e96b2174bfc11e2b62a08062b89f5bfb6fdcb9ca2acdfd3851090bb005e0"
+    },
+    "onboarding": {
+      "source": "launchdarkly/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/onboarding/SKILL.md",
+      "computedHash": "cdedfbe12d75f67bfa40d5f5f63c9b7fc4f5b35126ed77662c6a59bada58b7a3"
+    }
+  }
+}
