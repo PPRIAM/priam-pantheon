@@ -4,6 +4,8 @@ import { Montserrat, Space_Mono } from "next/font/google";
 import "./globals.css";
 // Composant d'accessibilité — lien d'évitement WCAG 2.1 AA
 import SkipLink from "@/components/ui/SkipLink";
+// Analytics — Vercel Web Analytics
+import { Analytics } from "@vercel/analytics/next";
 
 
 
@@ -65,6 +67,7 @@ export default function RootLayout({
         {/* Lien d'évitement — premier élément du body pour WCAG 2.1 AA */}
         <SkipLink />
         {children}
+        <Analytics />
       </body>
     </html>
   );
