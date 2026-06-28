@@ -5,7 +5,8 @@ import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import Logo from './ui/Logo'
 import MagneticButton from './ui/MagneticButton'
-import { Briefcase, Wrench, User, Envelope, PaperPlaneTilt } from '@phosphor-icons/react'
+import { ParthenonIcon, AthenaShieldIcon, LaurelWreathIcon, OlympusLightningIcon } from './ui/GreekIcons'
+import { PaperPlaneTilt } from '@phosphor-icons/react'
 
 // Liens de navigation avec cibles d'ancres
 const NAV_LINKS = [
@@ -15,12 +16,12 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact', id: 'contact' },
 ]
 
-// Mappage des identifiants vers les icônes Phosphor correspondantes pour le mode condensé
+// Mappage des identifiants vers les icônes grecques mythologiques natives pour le mode pilule condensé
 const ICON_MAP = {
-  work: Briefcase,
-  arsenal: Wrench,
-  about: User,
-  contact: Envelope,
+  work: ParthenonIcon,
+  arsenal: AthenaShieldIcon,
+  about: LaurelWreathIcon,
+  contact: OlympusLightningIcon,
 }
 
 export default function NavBar() {
@@ -93,7 +94,7 @@ export default function NavBar() {
       <nav
         className={`fixed z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-between ${
           scrolled
-            ? 'top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[480px] h-14 rounded-full shadow-lg px-6 py-2'
+            ? 'bottom-4 left-1/2 -translate-x-1/2 md:bottom-auto md:top-4 w-[calc(100%-2rem)] max-w-[480px] h-14 rounded-full shadow-lg px-6 py-2'
             : 'top-0 left-0 w-full h-20 rounded-none border-b border-transparent bg-transparent px-6 md:px-12'
         }`}
       >
@@ -162,7 +163,7 @@ export default function NavBar() {
                     {link.label}
                   </span>
                   
-                  {/* Icône Phosphor pour l'état pilule condensée (apparaît après contraction de la barre) */}
+                  {/* Icône grecque mythologique native pour l'état pilule condensé */}
                   <span className={`transition-all ${
                     scrolled 
                       ? 'duration-300 delay-150 opacity-100 scale-100 max-w-[40px]' 
@@ -171,9 +172,11 @@ export default function NavBar() {
                     {IconComponent && (
                       <IconComponent
                         size={20}
+                        glow={isActive}
+                        color={isActive ? '#BEFF39' : '#A89880'}
                         className={`transition-all duration-300 ${
                           isActive 
-                            ? 'scale-115 text-[#BEFF39] drop-shadow-[0_0_8px_rgba(190,255,57,0.6)]' 
+                            ? 'scale-115 text-[#BEFF39]' 
                             : 'hover:scale-110 hover:text-[#F5EDD8]'
                         }`}
                       />

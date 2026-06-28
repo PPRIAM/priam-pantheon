@@ -10,6 +10,7 @@
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Star } from '@phosphor-icons/react'
+import { ParthenonIcon, LaurelWreathIcon, OlympusLightningIcon } from '@/components/ui/GreekIcons'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -119,8 +120,8 @@ function ProjectCard({
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        {/* Conteneur visuel — bordure métallique + survol lime glow */}
-        <div className="h-full metallic-border overflow-hidden rounded-2xl relative bg-neutral-900/40 transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_rgba(190,255,57,0.12)]">
+        {/* Conteneur visuel — bordure métallique + survol lime glow + retour tactile actif au tap */}
+        <div className="h-full metallic-border overflow-hidden rounded-2xl relative bg-neutral-900/40 transition-all duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_rgba(190,255,57,0.12)] active:scale-[0.98] transition-transform duration-200 cursor-pointer">
           {/* Fond dégradé lime → transparent */}
           <div
             className="w-full h-full min-h-[260px] relative"
@@ -139,8 +140,8 @@ function ProjectCard({
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <span
                 ref={initialsRef}
-                className="text-8xl lg:text-9xl font-extrabold text-[#BEFF39]/10 select-none tracking-tighter"
-                style={{ fontFamily: 'var(--font-nagasaki), Impact, sans-serif' }}
+                className="font-nagasaki text-8xl lg:text-9xl font-extrabold text-[#BEFF39]/10 select-none tracking-tighter"
+                style={{ fontFamily: "'Nagasaki', 'nagasaki', var(--font-nagasaki), sans-serif" }}
               >
                 {initials}
               </span>
@@ -160,7 +161,7 @@ function ProjectCard({
             <div className="absolute bottom-5 left-5 z-10">
               <h3
                 className="text-lg font-bold text-[#F5EDD8] leading-tight mb-1 group-hover:text-[#BEFF39] transition-colors duration-200"
-                style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+                style={{ fontFamily: 'var(--font-geoform), sans-serif' }}
               >
                 {project.title}
               </h3>
@@ -182,11 +183,11 @@ function ProjectCard({
 
 function StatCell({ stat }: { stat: (typeof STATS)[0] }) {
   return (
-    <div className="bento-cell glass-card p-5 hover:border-[#BEFF39]/20 hover:shadow-[0_0_30px_rgba(190,255,57,0.05)] transition-all duration-300">
-      {/* Valeur en police display Nagasaki — accent lime */}
+    <div className="bento-cell glass-card glass-card-interactive p-5 active:scale-[0.98] cursor-pointer">
+      {/* Valeur numérique en police GeoForm — lisibilité parfaite des chiffres et accent lime */}
       <p
-        className="text-3xl lg:text-4xl font-black text-[#BEFF39] mb-2 tracking-tighter"
-        style={{ fontFamily: 'var(--font-nagasaki), Impact, sans-serif' }}
+        className="text-3xl lg:text-4xl font-extrabold text-[#BEFF39] mb-2 tracking-tighter"
+        style={{ fontFamily: 'var(--font-geoform), var(--font-montserrat), sans-serif' }}
       >
         {stat.value}
       </p>
@@ -214,7 +215,7 @@ function StatCell({ stat }: { stat: (typeof STATS)[0] }) {
 
 function TestimonialCell({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="bento-cell premium-glass p-6 rounded-2xl relative overflow-hidden group hover:border-[#BEFF39]/20 transition-all duration-300">
+    <div className="bento-cell premium-glass glass-card-interactive p-6 rounded-2xl relative overflow-hidden group active:scale-[0.98] cursor-pointer">
       {/* Guillemet géant décoratif en arrière-plan */}
       <span
         className="absolute -top-4 -right-1 text-[10rem] font-bold text-[#BEFF39]/5 select-none pointer-events-none transition-colors duration-300 group-hover:text-[#BEFF39]/10 leading-none"
@@ -341,14 +342,15 @@ export default function ShowcaseBentoSection({
         {/* ── En-tête de section ─────────────────────────────────────────── */}
         <div ref={headerRef} className="mb-24 opacity-0">
           <p
-            className="section-eyebrow"
+            className="section-eyebrow flex items-center gap-2"
             style={{ fontFamily: 'var(--font-space-mono)' }}
           >
+            <ParthenonIcon size={18} glow={true} />
             SHOWCASE
           </p>
           <h2
             className="section-heading"
-            style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+            style={{ fontFamily: 'var(--font-geoform), sans-serif' }}
           >
             The Work
           </h2>
@@ -386,43 +388,71 @@ export default function ShowcaseBentoSection({
                 </div>
               )}
 
-              {/* Mini-grille des statistiques 2×2 — occupe 2 colonnes. Cible id="about" pour le défilement depuis la barre de navigation. */}
-              <div id="about" className="lg:col-span-2 grid grid-cols-2 gap-4 scroll-mt-24">
-                {STATS.map((stat) => (
-                  <StatCell key={stat.label} stat={stat} />
-                ))}
+              {/* Bloc des statistiques — Cible id="about" optimisée avec en-tête dédié pour le défilement fluide depuis la barre de navigation */}
+              <div id="about" className="lg:col-span-2 flex flex-col justify-between scroll-mt-28">
+                {/* En-tête de sous-section enrichi pour l'ancrage #about */}
+                <div className="mb-4 flex items-center justify-between border-b border-white/5 pb-3">
+                  <div>
+                    <p
+                      className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#BEFF39] flex items-center gap-1.5"
+                      style={{ fontFamily: 'var(--font-space-mono)' }}
+                    >
+                      <LaurelWreathIcon size={16} />
+                      ABOUT & METRICS
+                    </p>
+                    <h3
+                      className="text-lg font-bold text-[#F5EDD8] tracking-tight"
+                      style={{ fontFamily: 'var(--font-geoform), sans-serif' }}
+                    >
+                      Key Impact Metrics
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <OlympusLightningIcon size={20} glow={true} className="animate-pulse" />
+                  </div>
+                </div>
+
+                {/* Mini-grille 2×2 des statistiques */}
+                <div className="grid grid-cols-2 gap-4">
+                  {STATS.map((stat) => (
+                    <StatCell key={stat.label} stat={stat} />
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* ── Rangée 2 : Témoignage 1 + Projet 2 (2 cols) + Témoignage 2 ── */}
+            {/* ── Rangée 2 : Témoignages & Projets secondaires avec gestion dynamique des espaces ── */}
             {(testimonial1 || project2 || testimonial2) && (
               <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                {/* Témoignage gauche */}
-                {testimonial1 ? (
-                  <div className="lg:col-span-1">
-                    <TestimonialCell testimonial={testimonial1} />
-                  </div>
-                ) : (
-                  <div className="lg:col-span-1" />
-                )}
-
-                {/* Projet central — occupe 2 colonnes */}
                 {project2 ? (
-                  <ProjectCard
-                    project={project2}
-                    className="lg:col-span-2"
-                  />
+                  <>
+                    {/* Dispo 4 colonnes complète : Témoignage (1) + Projet (2) + Témoignage (1) */}
+                    {testimonial1 && (
+                      <div className="lg:col-span-1">
+                        <TestimonialCell testimonial={testimonial1} />
+                      </div>
+                    )}
+                    <ProjectCard project={project2} className="lg:col-span-2" />
+                    {testimonial2 && (
+                      <div className="lg:col-span-1">
+                        <TestimonialCell testimonial={testimonial2} />
+                      </div>
+                    )}
+                  </>
                 ) : (
-                  <div className="lg:col-span-2" />
-                )}
-
-                {/* Témoignage droit */}
-                {testimonial2 ? (
-                  <div className="lg:col-span-1">
-                    <TestimonialCell testimonial={testimonial2} />
-                  </div>
-                ) : (
-                  <div className="lg:col-span-1" />
+                  <>
+                    {/* Sans projet 2 : Les deux témoignages s'étendent sur 2 colonnes chacun pour combler le vide */}
+                    {testimonial1 && (
+                      <div className={testimonial2 ? "lg:col-span-2" : "lg:col-span-4"}>
+                        <TestimonialCell testimonial={testimonial1} />
+                      </div>
+                    )}
+                    {testimonial2 && (
+                      <div className={testimonial1 ? "lg:col-span-2" : "lg:col-span-4"}>
+                        <TestimonialCell testimonial={testimonial2} />
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
             )}

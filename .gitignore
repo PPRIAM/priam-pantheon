@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+report_temp.html
+prisma/dev.db
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
@@ -66,3 +69,5 @@ docs/
 # types
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel

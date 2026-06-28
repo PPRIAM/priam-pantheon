@@ -18,9 +18,24 @@ export default async function Home() {
   ])
 
   return (
-    <main id="main-content">
+    <main id="main-content" className="relative overflow-hidden">
       <NavBar />
       <HeroSection />
+
+      {/* Halos lumineux ambiants vert lime pour illuminer l'espace sombre */}
+      <div
+        className="ambient-spotlight w-[600px] h-[600px] top-[20%] -left-[200px]"
+        aria-hidden="true"
+      />
+      <div
+        className="ambient-spotlight w-[700px] h-[700px] top-[50%] -right-[250px]"
+        aria-hidden="true"
+      />
+      <div
+        className="ambient-spotlight w-[650px] h-[650px] top-[75%] left-[10%]"
+        aria-hidden="true"
+      />
+
       {/* Grille Bento Showcase remplaçant Gallery, Testimonials et Sanctum */}
       <ShowcaseBentoSection projects={projects} testimonials={testimonials} />
       <ArsenalSection />

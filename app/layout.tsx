@@ -60,8 +60,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserrat.variable} ${spaceMono.variable} antialiased`}
+        className={`${montserrat.variable} ${spaceMono.variable} antialiased relative`}
       >
+        {/* Grain de bruit SVG global pour enrichir la profondeur tactile */}
+        <div className="bg-noise-overlay" aria-hidden="true" />
         {/* Lien d'évitement — premier élément du body pour WCAG 2.1 AA */}
         <SkipLink />
         {children}

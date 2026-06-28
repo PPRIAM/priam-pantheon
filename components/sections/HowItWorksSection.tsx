@@ -2,7 +2,7 @@
 
 // Section Processus — présentation du workflow en 3 étapes avec flèches de liaison et GSAP ScrollTrigger
 import { useEffect, useRef } from 'react'
-import { Crosshair, PencilLine, Rocket } from '@phosphor-icons/react'
+import { ParthenonIcon, SpartanHelmetIcon, HermesCaduceusIcon } from '@/components/ui/GreekIcons'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -10,28 +10,28 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-// Définition des 3 étapes du processus de collaboration
+// Définition des 3 étapes du processus de collaboration avec icônes grecques natives
 const STEPS = [
   {
     number: '01',
     title: 'Scope & Align',
     description:
       'We start with a deep-dive discovery session. I map your brand, audience, and goals — then define the scope, timeline, and success metrics.',
-    icon: Crosshair,
+    icon: ParthenonIcon,
   },
   {
     number: '02',
     title: 'Design & Iterate',
     description:
       'Agile visual creation with asynchronous reviews. High-fidelity mockups, motion prototypes, and rapid iteration until every pixel resonates.',
-    icon: PencilLine,
+    icon: SpartanHelmetIcon,
   },
   {
     number: '03',
     title: 'Build & Deliver',
     description:
       'Production-grade Next.js development, SEO optimization, performance tuning, and a seamless handoff. Your digital experience — launched.',
-    icon: Rocket,
+    icon: HermesCaduceusIcon,
   },
 ]
 
@@ -81,28 +81,28 @@ function ProcessCard({
   index: number
   isLast: boolean
 }) {
-  const Icon = step.icon
+  const IconComponent = step.icon
 
   return (
     <div className="relative">
       <div className="process-card premium-glass p-8 md:p-10 rounded-2xl relative overflow-hidden group opacity-0 hover:shadow-[0_0_0_1px_rgba(190,255,57,0.25)]">
-        {/* Numéro d'étape en Nagasaki — gros, lime, basse opacité, positionné en haut à droite */}
+        {/* Numéro d'étape en GeoForm — gros, lime, basse opacité, positionné en haut à droite */}
         <span
           className="absolute top-4 right-6 text-6xl font-black text-[#BEFF39] opacity-20 select-none pointer-events-none leading-none"
-          style={{ fontFamily: 'var(--font-nagasaki), Impact, sans-serif' }}
+          style={{ fontFamily: 'var(--font-geoform), sans-serif' }}
         >
           {step.number}
         </span>
 
-        {/* Conteneur d'icône avec rotation au survol (cohérent avec ArsenalSection) */}
+        {/* Conteneur d'icône avec rotation au survol et lueur lime */}
         <div className="w-14 h-14 bg-white/5 text-[#A89880] group-hover:text-[#BEFF39] group-hover:bg-[#BEFF39]/10 flex items-center justify-center rounded-xl mb-8 transition-all duration-300 transform group-hover:rotate-[10deg]">
-          <Icon size={28} weight="light" />
+          <IconComponent size={28} glow={true} />
         </div>
 
-        {/* Titre de l'étape en GeoForm / Playfair */}
+        {/* Titre de l'étape en GeoForm */}
         <h3
           className="text-xl font-bold text-[#F5EDD8] mb-4"
-          style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
+          style={{ fontFamily: 'var(--font-geoform), sans-serif' }}
         >
           {step.title}
         </h3>

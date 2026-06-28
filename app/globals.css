@@ -1,22 +1,110 @@
 @import "tailwindcss";
 
 /* Déclarations des polices locales personnalisées */
+/* Déclarations des polices locales personnalisées — Nagasaki (Support multi-poids 100-900 & casse) */
 @font-face {
   font-family: 'Nagasaki';
-  src: url('/fonts/nagasaki.woff2') format('woff2'),
-       url('/fonts/nagasaki.woff') format('woff'),
-       url('/fonts/nagasaki.ttf') format('truetype');
-  font-weight: normal;
+  src: local('Nagasaki'), local('nagasaki'),
+       url('/fonts/nagasaki.ttf') format('truetype'),
+       url('/fonts/nagasaki.ttf') format('ttf');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'nagasaki';
+  src: local('Nagasaki'), local('nagasaki'),
+       url('/fonts/nagasaki.ttf') format('truetype'),
+       url('/fonts/nagasaki.ttf') format('ttf');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nagasaki';
+  src: local('Nagasaki'), local('nagasaki'), url('/fonts/nagasaki.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nagasaki';
+  src: local('Nagasaki'), local('nagasaki'), url('/fonts/nagasaki.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nagasaki';
+  src: local('Nagasaki'), local('nagasaki'), url('/fonts/nagasaki.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nagasaki';
+  src: local('Nagasaki'), local('nagasaki'), url('/fonts/nagasaki.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Class utilitaire directe pour forcer l'utilisation de Nagasaki */
+.font-nagasaki {
+  font-family: 'Nagasaki', 'nagasaki', Impact, 'Arial Black', sans-serif !important;
+}
+
+@font-face {
+  font-family: 'GeoForm';
+  src: local('GeoForm'), local('Geoform'),
+       url('/fonts/Geoform-BF6556c6e73002d.otf') format('opentype'),
+       url('/fonts/Geoform-BF6556c6e73002d.otf') format('otf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geoform';
+  src: local('GeoForm'), local('Geoform'),
+       url('/fonts/Geoform-BF6556c6e73002d.otf') format('opentype'),
+       url('/fonts/Geoform-BF6556c6e73002d.otf') format('otf');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'GeoForm';
-  src: url('/fonts/geoform.woff2') format('woff2'),
-       url('/fonts/geoform.woff') format('woff'),
-       url('/fonts/geoform.ttf') format('truetype');
-  font-weight: normal;
+  src: local('GeoForm Medium'), local('Geoform Medium'),
+       url('/fonts/Geoform-Medium-BF6556c6e620ac4.otf') format('opentype'),
+       url('/fonts/Geoform-Medium-BF6556c6e620ac4.otf') format('otf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeoForm';
+  src: local('GeoForm Bold'), local('Geoform Bold'),
+       url('/fonts/Geoform-Bold-BF6556c6e7190d1.otf') format('opentype'),
+       url('/fonts/Geoform-Bold-BF6556c6e7190d1.otf') format('otf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeoForm';
+  src: local('GeoForm ExtraBold'), local('Geoform ExtraBold'),
+       url('/fonts/Geoform-ExtraBold-BF6556c6e755e60.otf') format('opentype'),
+       url('/fonts/Geoform-ExtraBold-BF6556c6e755e60.otf') format('otf');
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -820,5 +908,55 @@ body::after {
 
 .btn-sweep:hover::after {
   left: 150%;
+}
+
+/* ============================================================
+   Ambiance Éditoriale & Micro-interactions (Approche 2)
+   Texture de grain de bruit SVG et projecteurs d'aura ambiante
+   ============================================================ */
+
+/* Superposition de grain de bruit global sur tout le site */
+.bg-noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: '';
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: var(--z-grain, 200);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Halos lumineux ambiants réactifs en arrière-plan (sans filter blur pour éviter les artéfacts de rendu GPU) */
+.ambient-spotlight {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(190, 255, 57, 0.12) 0%, rgba(190, 255, 57, 0.03) 50%, transparent 70%);
+  animation: auraPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes auraPulse {
+  0% {
+    opacity: 0.12;
+    transform: scale(0.95) translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0.22;
+    transform: scale(1.05) translate3d(0, 10px, 0);
+  }
+}
+
+/* Micro-interactions de survol interactif pour cartes glass */
+.glass-card-interactive {
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.glass-card-interactive:hover {
+  border-color: rgba(190, 255, 57, 0.3) !important;
+  box-shadow: 0 0 35px rgba(190, 255, 57, 0.1) !important;
+  transform: translateY(-4px) scale(1.01);
 }
 

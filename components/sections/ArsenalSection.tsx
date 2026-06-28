@@ -2,7 +2,7 @@
 
 // Section Arsenal — description des compétences avec cartes premium-glass & GSAP ScrollTrigger
 import { useEffect, useRef } from 'react'
-import { PaintBrush, Compass, Rocket } from '@phosphor-icons/react'
+import { AthenaShieldIcon, ParthenonIcon, OlympusLightningIcon } from '@/components/ui/GreekIcons'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -10,31 +10,31 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-// Définition des 3 disciplines clés
+// Définition des 3 disciplines clés avec icônes grecques locales
 const CAPABILITIES = [
   {
     id: 'interface-design',
     title: 'Interface Design',
     description: 'Systèmes de design centrés sur l\'utilisateur, conçus pour la conversion et une fidélité visuelle absolue.',
-    icon: PaintBrush,
+    icon: AthenaShieldIcon,
   },
   {
     id: 'creative-strategy',
     title: 'Creative Strategy',
     description: 'Architecture de marque et positionnement stratégique pour imposer une valeur premium sur le marché.',
-    icon: Compass,
+    icon: ParthenonIcon,
   },
   {
     id: 'technical-architecture',
     title: 'Technical Architecture',
     description: 'Plateformes expérientielles Next.js performantes, optimisées pour le SEO et une vitesse d\'exécution maximale.',
-    icon: Rocket,
+    icon: OlympusLightningIcon,
   },
 ]
 
 // Composant carte individuelle réutilisable (Refactorisé pour animation GSAP)
 function ArsenalCard({ capability, index }: { capability: typeof CAPABILITIES[0]; index: number }) {
-  const Icon = capability.icon
+  const IconComponent = capability.icon
 
   return (
     <div
@@ -44,7 +44,7 @@ function ArsenalCard({ capability, index }: { capability: typeof CAPABILITIES[0]
       <div
         className="w-14 h-14 bg-white/5 text-[#A89880] group-hover:text-[#BEFF39] group-hover:bg-[#BEFF39]/10 flex items-center justify-center rounded-xl mb-8 transition-all duration-300 transform group-hover:rotate-[10deg]"
       >
-        <Icon size={28} weight="light" />
+        <IconComponent size={28} glow={true} />
       </div>
 
       {/* Titre de la compétence */}

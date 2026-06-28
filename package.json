@@ -14,6 +14,7 @@
     "video:render": "npm --prefix video run render"
   },
   "dependencies": {
+    "@iconify/react": "^6.0.2",
     "@launchdarkly/node-server-sdk": "^9.11.3",
     "@phosphor-icons/react": "^2.1.10",
     "@prisma/client": "^6.19.3",

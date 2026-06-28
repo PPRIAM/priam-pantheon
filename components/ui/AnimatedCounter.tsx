@@ -111,8 +111,8 @@ export default function AnimatedCounter({
       ref={containerRef}
       className={className}
       style={{
-        // Nagasaki pour l'impact visuel des statistiques
-        fontFamily: 'var(--font-nagasaki), Impact, sans-serif',
+        // GeoForm pour l'affichage précis des chiffres des statistiques
+        fontFamily: 'var(--font-geoform), var(--font-montserrat), sans-serif',
         display: 'inline-block',
         // Chiffres tabulaires — alignement constant pendant l'animation
         fontVariantNumeric: 'tabular-nums',
