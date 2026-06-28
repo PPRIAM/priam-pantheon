@@ -13,29 +13,29 @@ if (typeof window !== 'undefined') {
 // Données des questions fréquentes
 const FAQS = [
   {
-    question: 'What are your core specialties?',
+    question: 'Quelles sont vos spécialités principales ?',
     answer:
-      'I specialize in brand identity, UI/UX design, creative direction, and full-stack web development with Next.js. My focus is on creating premium digital experiences that convert.',
+      'Je suis spécialisé en identité de marque, design UI/UX, direction artistique et développement web full-stack avec Next.js. Mon objectif est de créer des expériences numériques d\'exception qui génèrent des conversions.',
   },
   {
-    question: 'What is your typical turnaround time?',
+    question: 'Quel est votre délai d\'exécution habituel ?',
     answer:
-      'Most projects are scoped for 2-6 weeks depending on complexity. Smaller deliverables like landing pages can ship in 48-72 hours. I always provide a clear timeline before starting.',
+      'La plupart des projets sont planifiés sur 2 à 6 semaines selon leur complexité. Les livrables plus ciblés comme les landing pages peuvent être livrés en 48 à 72 heures. Je fournis toujours un calendrier précis avant de débuter.',
   },
   {
-    question: 'What tech stack do you use?',
+    question: 'Quelle stack technique utilisez-vous ?',
     answer:
-      'Next.js (App Router), React, TypeScript, TailwindCSS, GSAP for animations, Prisma for databases, and Vercel for deployment. Every tool chosen for performance and developer experience.',
+      'Next.js (App Router), React, TypeScript, TailwindCSS, GSAP pour les animations, Prisma pour les bases de données et Vercel pour le déploiement. Chaque outil est choisi pour sa performance et son expérience développeur.',
   },
   {
-    question: 'How do we get started?',
+    question: 'Comment démarrer une collaboration ?',
     answer:
-      'Start with a free discovery call. I offer a trial scope — a small, well-defined deliverable — so you can evaluate quality before committing to a larger engagement.',
+      'Tout commence par un appel de découverte gratuit. Je propose une phase de test — un livrable restreint et parfaitement défini — pour vous permettre d\'évaluer la qualité avant de vous engager sur un projet plus vaste.',
   },
   {
-    question: 'Do you work with international clients?',
+    question: 'Travaillez-vous avec des clients internationaux ?',
     answer:
-      'Absolutely. I have delivered projects across 12 countries and 6 industries. Communication is asynchronous-first, with scheduled syncs as needed.',
+      'Absolument. J\'ai réalisé des projets dans plus de 12 pays et 6 secteurs d\'activité. La communication s\'effectue en priorité de manière asynchrone, avec des points de synchronisation planifiés selon vos besoins.',
   },
 ]
 
@@ -51,8 +51,6 @@ function FAQItem({
   isOpen: boolean
   onToggle: () => void
 }) {
-  const answerRef = useRef<HTMLDivElement>(null)
-
   return (
     <div className="faq-item opacity-0">
       {/* Séparateur entre les éléments */}
@@ -99,10 +97,10 @@ function FAQItem({
 
         {/* Conteneur de la réponse — animation max-height + overflow-hidden */}
         <div
-          ref={answerRef}
           className="overflow-hidden transition-all duration-500 ease-in-out"
           style={{
-            maxHeight: isOpen ? `${answerRef.current?.scrollHeight ?? 200}px` : '0px',
+            maxHeight: isOpen ? '500px' : '0px',
+            opacity: isOpen ? 1 : 0,
           }}
         >
           <p
@@ -197,7 +195,7 @@ export default function FAQsSection() {
             className="section-heading"
             style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
           >
-            Questions & Answers
+            Questions & Réponses
           </h2>
           <div className="divider-lime mt-4 mb-6" />
           <p

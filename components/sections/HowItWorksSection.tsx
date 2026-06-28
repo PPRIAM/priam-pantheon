@@ -10,27 +10,27 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-// Définition des 3 étapes du processus de collaboration avec icônes grecques natives
+// Définition des 3 étapes de l'ingénierie stratégique (Copywriting Persuasif)
 const STEPS = [
   {
     number: '01',
-    title: 'Scope & Align',
+    title: 'Immersion & Cartographie Stratégique',
     description:
-      'We start with a deep-dive discovery session. I map your brand, audience, and goals — then define the scope, timeline, and success metrics.',
+      'Une audit en profondeur de votre écosystème. Je décode votre marché, vos objectifs et votre cible pour concevoir une feuille de route millimétrée centrée sur le ROI.',
     icon: ParthenonIcon,
   },
   {
     number: '02',
-    title: 'Design & Iterate',
+    title: 'Architecture & Direction Artistique',
     description:
-      'Agile visual creation with asynchronous reviews. High-fidelity mockups, motion prototypes, and rapid iteration until every pixel resonates.',
+      'Prototypage immersif et design d\'avant-garde. Chaque interface est façonnée avec rigueur pour susciter la fascination visuelle et guider le parcours d\'achat.',
     icon: SpartanHelmetIcon,
   },
   {
     number: '03',
-    title: 'Build & Deliver',
+    title: 'Ingénierie Web & Déploiement Souverain',
     description:
-      'Production-grade Next.js development, SEO optimization, performance tuning, and a seamless handoff. Your digital experience — launched.',
+      'Développement Next.js / TypeScript de qualité industrielle. Tests de performance extrêmes, SEO de pointe et déploiement haute disponibilité.',
     icon: HermesCaduceusIcon,
   },
 ]
@@ -188,20 +188,20 @@ export default function HowItWorksSection() {
             className="section-eyebrow"
             style={{ fontFamily: 'var(--font-space-mono)' }}
           >
-            PROCESS
+            MÉTHODOLOGIE STRATÉGIQUE
           </p>
           <h2
             className="section-heading"
             style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
           >
-            How It Works
+            L&apos;Ingénierie du Succès
           </h2>
           <div className="divider-lime mt-4 mb-6" />
           <p
-            className="font-sans text-base text-[#A89880] max-w-md leading-relaxed"
+            className="font-sans text-base text-[#A89880] max-w-lg leading-relaxed"
             style={{ fontFamily: 'var(--font-geist), sans-serif' }}
           >
-            Un processus structuré, transparent et itératif — de la vision initiale au lancement final.
+            Un workflow de rigueur suisse et d&apos;agilité moderne — conçu pour transformer votre vision en un actif numérique souverain.
           </p>
         </div>
 

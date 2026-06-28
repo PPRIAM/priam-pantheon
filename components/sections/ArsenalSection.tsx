@@ -10,24 +10,24 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-// Définition des 3 disciplines clés avec icônes grecques locales
+// Définition des 3 disciplines fondamentales (Copywriting Persuasif)
 const CAPABILITIES = [
   {
     id: 'interface-design',
-    title: 'Interface Design',
-    description: 'Systèmes de design centrés sur l\'utilisateur, conçus pour la conversion et une fidélité visuelle absolue.',
+    title: 'Design d\'Interface Haute Couture',
+    description: 'Conception de Design Systems d\'avant-garde centrés sur l\'expérience utilisateur, la désirabilité visuelle et la maximisation des conversions.',
     icon: AthenaShieldIcon,
   },
   {
     id: 'creative-strategy',
-    title: 'Creative Strategy',
-    description: 'Architecture de marque et positionnement stratégique pour imposer une valeur premium sur le marché.',
+    title: 'Stratégie de Marque & Positionnement',
+    description: 'Architecture de marque souveraine et alignement stratégique pour affirmer une autorité incontestable sur votre marché.',
     icon: ParthenonIcon,
   },
   {
     id: 'technical-architecture',
-    title: 'Technical Architecture',
-    description: 'Plateformes expérientielles Next.js performantes, optimisées pour le SEO et une vitesse d\'exécution maximale.',
+    title: 'Ingénierie & Architecture Web',
+    description: 'Développement de plateformes expérientielles Next.js / TypeScript réactives, sécurisées, optimisées SEO et ultra-rapides.',
     icon: OlympusLightningIcon,
   },
 ]
@@ -140,20 +140,20 @@ export default function ArsenalSection() {
           className="mb-20 opacity-0"
         >
           <p className="section-eyebrow" style={{ fontFamily: 'var(--font-space-mono)' }}>
-            CAPABILITIES
+            DISCIPLINES & EXPERTISE
           </p>
           <h2
             className="section-heading"
             style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
           >
-            The Arsenal
+            L&apos;Arsenal Créatif &amp; Technique
           </h2>
           <div className="divider-lime mt-4 mb-6" />
           <p
-            className="font-sans text-base text-[#A89880] max-w-md leading-relaxed"
+            className="font-sans text-base text-[#A89880] max-w-lg leading-relaxed"
             style={{ fontFamily: 'var(--font-geist), sans-serif' }}
           >
-            Trois piliers fondamentaux. Une vision unifiée pour concevoir des produits qui dominent le marché.
+            Trois piliers fondamentaux indissociables. Une symbiose stratégique entre art visuel et ingénierie logicielle pour dominer votre marché.
           </p>
         </div>
 

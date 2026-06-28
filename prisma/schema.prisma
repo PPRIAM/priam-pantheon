@@ -22,6 +22,8 @@ model Project {
   approach    String
   solution    String
   roi         String?
+  liveUrl     String?
+  previewType String?  @default("iframe")
   coverImage  String?
   gallery     String?
   createdAt   DateTime @default(now())

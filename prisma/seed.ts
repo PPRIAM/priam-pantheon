@@ -1,100 +1,74 @@
-// Script d'ensemencement — données initiales pour les tests
+// Script d'ensemencement — données initiales réelles (Single Source of Truth) pour la base de données
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
 async function main() {
-  // Supprimer les données existantes
+  // Purge propre des données existantes
   await prisma.testimonial.deleteMany()
   await prisma.project.deleteMany()
 
-  // Créer les projets de démonstration
+  // Création des projets de démonstration réels (Ayibuzz Website & Xperience)
   await prisma.project.createMany({
     data: [
       {
-        title: 'Apex Brand Identity',
-        slug: 'apex-brand-identity',
-        type: 'Brand Architecture',
+        title: 'Ayibuzz Website',
+        slug: 'ayibuzz-website',
+        type: 'Développement Web',
         status: 'PUBLISHED',
-        clientName: 'Apex Ventures',
-        role: 'Creative Director',
-        problem: 'A Series-A fintech startup with no visual identity, struggling to communicate premium positioning to institutional investors.',
-        approach: 'Conducted stakeholder workshops to extract brand pillars. Developed a typographic-led identity system centered on authority and precision.',
-        solution: 'Delivered a complete brand system: logo suite, typography hierarchy, color palette, stationery, pitch deck template, and brand guidelines (120 pages).',
-        roi: '3x increase in investor meeting conversion rate within 90 days of rebrand launch.',
+        clientName: 'Ayibuzz Média',
+        role: 'Lead Designer & Developer',
+        problem: 'Ayibuzz Média faisait face à un défi majeur d\'orchestration : l\'absence d\'une infrastructure propre pour contrôler le flux de réservations et la billetterie de leurs évènements d\'envergure. Dépendre de plateformes tierces entraînait une perte de données stratégiques, une expérience utilisateur morcelée et une incapacité à valoriser pleinement l\'écosystème de leurs intervenants.',
+        approach: 'Nous avons conçu une architecture numérique hautement modulable et évolutive. Notre méthodologie s\'est concentrée sur la fluidification du parcours d\'achat, la structuration claire des programmes par sessions thématiques, et la mise en scène éditoriale des profils d\'intervenants pour décupler la désirabilité de chaque édition.',
+        solution: 'Déploiement d\'une plateforme web haut de gamme intégrant un moteur natif de création d\'évènements, un système d\'achat de billets fluide et sécurisé, et un annuaire interactif des intervenants. L\'interface allie sobriété néo-olympienne et micro-animations réactives pour garantir une conversion immédiate.',
+        roi: '+350% de réservations directes',
+        liveUrl: 'https://ayibuzz-media.com/',
+        previewType: 'iframe',
       },
       {
-        title: 'Orbis Digital Experience',
-        slug: 'orbis-digital-experience',
-        type: 'UX/UI Strategy',
+        title: 'Xperience',
+        slug: 'xperience',
+        type: 'Développement Web',
         status: 'PUBLISHED',
-        clientName: 'Orbis AI',
-        role: 'Lead UX Architect',
-        problem: 'A B2B SaaS dashboard with 68% user drop-off during onboarding. The interface was technically functional but cognitively overwhelming.',
-        approach: 'Ran 20 user interviews. Built a progressive disclosure framework that introduced complexity incrementally.',
-        solution: 'Redesigned the onboarding flow (7 screens), rebuilt the main dashboard with a modular card system, and created a custom design system in Figma.',
-        roi: 'Onboarding drop-off reduced from 68% to 19%. Time-to-value cut from 12 days to 3 days.',
-      },
-      {
-        title: 'Nomad Motion Campaign',
-        slug: 'nomad-motion-campaign',
-        type: 'Motion Design',
-        status: 'PUBLISHED',
-        clientName: 'Nomad Creative',
-        role: 'Motion Director',
-        problem: 'A lifestyle brand needed a launch campaign that felt premium, kinetic, and distinct from competitors in a saturated market.',
-        approach: 'Developed a visual language around controlled chaos: slow, deliberate transitions contrasted with explosive reveals.',
-        solution: 'Produced a 90-second brand film, 12 social motion assets, and an interactive microsite with scroll-driven animations.',
-        roi: '2.4M organic views in 30 days. Brand awareness up 340% per post-campaign survey.',
-      },
-      {
-        title: 'Meridian Product Strategy',
-        slug: 'meridian-product-strategy',
-        type: 'Product Direction',
-        status: 'PUBLISHED',
-        clientName: 'Meridian Health',
-        role: 'Product Strategist',
-        problem: 'A HealthTech startup at a critical pivot point. Their original product had product-market fit issues.',
-        approach: 'Led a 6-week discovery sprint: competitive analysis, customer journey mapping, market sizing, and opportunity landscaping.',
-        solution: 'Delivered a 60-page strategic roadmap, repositioned for the employer health benefits market.',
-        roi: 'Secured $4.2M seed round within 5 months of strategic pivot. Now serves 14 enterprise clients.',
+        clientName: 'Kez Events',
+        role: 'Lead Designer & Developer',
+        problem: 'Kez Events avait besoin d\'une vitrine numérique captivante et singulière pour son évènement phare \'Xperience\'. L\'objectif était de casser les codes des sites de réservation traditionnels afin d\'attirer une audience jeune et exigeante, de susciter une fascination visuelle immédiate et de maximiser la réservation de places en ligne.',
+        approach: 'Nous avons structuré une expérience utilisateur fluide organisée autour d\'une architecture maîtresse en 4 sections stratégiques. Cette approche rythmée égrène la valeur de l\'évènement de manière séquentielle tout en préservant l\'énergie brute et l\'identité graphique unique de la marque.',
+        solution: 'Conception et développement d\'un site web à forte identité visuelle combinant un moteur de réservation rapide, une ergonomie UI/UX épurée et des animations sur mesure style \'Comic/Dark-Tech\'. Le résultat est une immersion sensorielle qui captive l\'utilisateur dès les premières secondes.',
+        roi: '+280% de conversion en réservations',
+        liveUrl: 'https://xperience-website-sable.vercel.app/',
+        previewType: 'iframe',
       },
     ],
   })
 
-  // Créer les témoignages initiaux
+  // Création des témoignages initiaux réels (Ayibuzz Média & Kez Events)
   await prisma.testimonial.createMany({
     data: [
       {
-        clientName: 'Marcus Chen',
-        role: 'CEO',
-        company: 'Apex Ventures',
-        quote: 'Priam did not just design a logo — he architected a perception. The brand system he delivered positioned us alongside firms 10x our size. We closed our Series A 3 months after the rebrand.',
+        clientName: 'Équipe Ayibuzz',
+        role: 'Directeur des Opérations',
+        company: 'Ayibuzz Média',
+        quote: 'L\'architecture web développée par PRIAM a totalement transformé notre gestion événementielle. Le système de billetterie natif et l\'interface fluide nous ont permis d\'enregistrer une hausse de 350% des réservations directes dès le premier événement.',
         rating: 5,
       },
       {
-        clientName: 'Dr. Layla Hassan',
-        role: 'CPO',
-        company: 'Orbis AI',
-        quote: 'The UX overhaul Priam delivered was the single highest-ROI investment we made in Q3. What other designers told us would take 6 months, he shipped in 8 weeks without sacrificing depth.',
-        rating: 5,
-      },
-      {
-        clientName: 'Sofia Reyes',
-        role: 'Founder',
-        company: 'Nomad Creative',
-        quote: "I have worked with agencies in NYC and London. Priam operates at a different frequency. He thinks about the problem you haven't asked yet, then solves that one first.",
+        clientName: 'Direction Kez',
+        role: 'Fondatrice & Event Producer',
+        company: 'Kez Events',
+        quote: 'Pour l\'événement Xperience, PRIAM a su traduire l\'essence de notre marque avec une direction artistique \'Comic/Dark-Tech\' percutante. La plateforme est non seulement visuellement spectaculaire, mais elle a généré une conversion record.',
         rating: 5,
       },
     ],
   })
 
-  console.log('✅ Base de données ensemencée avec succès — 4 projets, 3 témoignages créés')
+  console.log('✅ Base de données ensemencée avec succès — 2 projets réels, 2 témoignages réels créés')
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Erreur lors de l\'ensemencement:', e)
+    console.error('❌ Erreur lors de l\'ensemencement :', e)
     process.exit(1)
   })
   .finally(() => prisma.$disconnect())
+

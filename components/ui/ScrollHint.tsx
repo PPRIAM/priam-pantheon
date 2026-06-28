@@ -37,7 +37,7 @@ export default function ScrollHint() {
         color: '#A89880',
         textTransform: 'uppercase',
       }}>
-        Scroll to Explore
+        Découvrir
       </span>
       {/* Flèche animée */}
       <div style={{

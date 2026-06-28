@@ -68,7 +68,7 @@ export default function OverlayNav({ chamberIndex, onJump }: OverlayNavProps) {
         {/* Toggle Audio */}
         <button
           onClick={toggleAudio}
-          title={audioPlaying ? 'Mute' : 'Play ambient'}
+          title={audioPlaying ? 'Désactiver le son' : 'Activer l\'ambiance'}
           style={{
             width: '36px', height: '36px', borderRadius: '50%',
             background: 'rgba(10,8,6,0.6)',
@@ -84,7 +84,7 @@ export default function OverlayNav({ chamberIndex, onJump }: OverlayNavProps) {
           {audioPlaying ? '🔊' : '🔇'}
         </button>
 
-        {/* Hire Me */}
+        {/* Me Contacter */}
         <a
           href={`mailto:${siteConfig.email}`}
           style={{
@@ -106,7 +106,7 @@ export default function OverlayNav({ chamberIndex, onJump }: OverlayNavProps) {
             ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
           }}
         >
-          Hire Me →
+          Me Contacter →
         </a>
       </div>
 
@@ -120,7 +120,7 @@ export default function OverlayNav({ chamberIndex, onJump }: OverlayNavProps) {
           <button
             key={i}
             onClick={() => onJump(offset)}
-            title={`Chamber ${i + 1}`}
+            title={`Chambre ${i + 1}`}
             style={{
               width: '8px', height: '8px', borderRadius: '50%',
               border: 'none', cursor: 'pointer', padding: 0,

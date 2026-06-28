@@ -45,6 +45,8 @@ next-env.d.ts
 
 # fichiers générés
 audit-report.html
+ingest.html
+public/ingest.html
 
 # agent et changements techniques
 sessions/

@@ -8,11 +8,11 @@ import MagneticButton from './ui/MagneticButton'
 import { ParthenonIcon, AthenaShieldIcon, LaurelWreathIcon, OlympusLightningIcon } from './ui/GreekIcons'
 import { PaperPlaneTilt } from '@phosphor-icons/react'
 
-// Liens de navigation avec cibles d'ancres
+// Liens de navigation avec cibles d'ancres en français
 const NAV_LINKS = [
-  { label: 'Work', href: '#work', id: 'work' },
+  { label: 'Projets', href: '#work', id: 'work' },
   { label: 'Arsenal', href: '#arsenal', id: 'arsenal' },
-  { label: 'About', href: '#about', id: 'about' },
+  { label: 'À propos', href: '#about', id: 'about' },
   { label: 'Contact', href: '#contact', id: 'contact' },
 ]
 
@@ -32,7 +32,11 @@ export default function NavBar() {
 
   // Détection du défilement pour activer le flou et condenser la barre
   const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 50)
+    const isScrolled = window.scrollY > 50
+    setScrolled(isScrolled)
+    if (isScrolled) {
+      setMenuOpen(false)
+    }
   }, [])
 
   useEffect(() => {
@@ -44,13 +48,6 @@ export default function NavBar() {
       clearTimeout(timer)
     }
   }, [handleScroll])
-
-  // Fermer automatiquement le menu mobile si la barre est condensée
-  useEffect(() => {
-    if (scrolled) {
-      setMenuOpen(false)
-    }
-  }, [scrolled])
 
   // Détection de la section active à l'écran via IntersectionObserver
   useEffect(() => {
@@ -208,9 +205,9 @@ export default function NavBar() {
               <span className={`transition-all whitespace-nowrap ${
                 scrolled 
                   ? 'duration-150 delay-0 opacity-0 scale-75 absolute pointer-events-none' 
-                  : 'duration-300 delay-150 opacity-100 scale-100 max-w-[120px]'
+                  : 'duration-300 delay-150 opacity-100 scale-100 max-w-[140px]'
               }`}>
-                Let&rsquo;s Talk &rarr;
+                Lancer un projet &rarr;
               </span>
               <span className={`transition-all ${
                 scrolled 
@@ -274,7 +271,7 @@ export default function NavBar() {
                 onClick={() => scrollToSection('#contact')}
                 className="w-full py-3 bg-[#BEFF39] text-[#050505] font-bold rounded-full text-center cursor-pointer"
               >
-                Let&rsquo;s Talk &rarr;
+                Lancer un projet &rarr;
               </button>
             </li>
           </ul>

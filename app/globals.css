@@ -1,5 +1,44 @@
 @import "tailwindcss";
 
+:root {
+  --white: #ffffff;
+  --black: #050505;
+  --transparent: transparent;
+  --lime-500: #beff39;
+  --lime-glow: rgba(190, 255, 57, 0.08);
+  --bronze-500: #a89880;
+  --ivory-500: #f5edd8;
+  --blue-500: #beff39;
+  --indigo-300: #a89880;
+  --blue-300: #beff39;
+  --violet-200: #f5edd8;
+  --blue-400: #beff39;
+}
+
+@theme {
+  --animate-aurora: aurora 45s linear infinite;
+  --animate-aurora-float: aurora-float 60s ease-in-out infinite alternate;
+}
+
+/* Classes utilitaires d'animation aurora ultra-fluides en mouvement lent */
+@keyframes aurora-fallback {
+  0% { background-position: 0% 50%, 0% 50%; transform: rotate(0deg) scale(1); }
+  50% { background-position: 150% 50%, 150% 50%; transform: rotate(3deg) scale(1.05); }
+  100% { background-position: 300% 50%, 300% 50%; transform: rotate(0deg) scale(1); }
+}
+@keyframes aurora-float {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-20px) rotate(90deg) scale(1.1); opacity: 0.7; }
+  100% { transform: translateY(0px) rotate(180deg) scale(1); opacity: 0.4; }
+}
+
+.animate-aurora {
+  animation: aurora-fallback 45s linear infinite;
+}
+.animate-aurora-float {
+  animation: aurora-float 60s ease-in-out infinite alternate;
+}
+
 /* Déclarations des polices locales personnalisées */
 /* Déclarations des polices locales personnalisées — Nagasaki (Support multi-poids 100-900 & casse) */
 @font-face {

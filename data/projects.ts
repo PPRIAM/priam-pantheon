@@ -1,112 +1,121 @@
 // Source de données unique — modifier ce fichier pour mettre à jour tout le site
 import type { Project, Service, SiteConfig } from '@/types/data'
 
+/**
+ * Configuration globale du site et métriques du Boss (Mike G. Nervil / PRIAM).
+ * Regroupe la biographie, l'identité visuelle et les métriques clés de PRIAM.
+ */
 export const siteConfig: SiteConfig = {
   name: 'Mike G. Nervil',
   alias: 'PRIAM',
-  title: 'Creative Director & Web Architect',
-  bio: "I don't just design and build — I craft digital legacies that transform businesses.",
+  title: 'Designer Graphique & Développeur Web',
+
+  // 📝 BIOGRAPHIE DU BOSS (Adaptée avec le skill copywriting & positionnement Haïti)
+  bio: "Designer graphique & Développeur Web basé en Haïti. J'architecture des identités visuelles stratégiques, des plateformes web sur-mesure et des expériences numériques haute performance qui fusionnent créativité, rigueur et impact.",
+
   email: 'mikenervil14@gmail.com',
   socials: {
     instagram: 'https://instagram.com/priam.design',
     linkedin: 'https://linkedin.com/in/mikegnervil',
     behance: 'https://behance.net/priam',
   },
-  stats: { years: 5, projects: 40, clients: 20 },
+
+  // 📊 MÉTRIQUES CLÉS RÉELLES DU BOSS (Mike G. Nervil / PRIAM)
+  stats: {
+    years: 2,     // 2 Ans d'expérience sur le marché
+    projects: 30, // 30+ Projets d'envergure livrés
+    clients: 20,  // Clients accompagnés avec succès
+  },
+
   audioTrack: '/audio/pantheon-ambient.mp3',
 }
 
 // Projets de la galerie (max 6 pour la galerie 3D)
 export const projects: Project[] = [
   {
-    id: 'brand-luxeaura',
-    title: 'LuxeAura Brand Identity',
-    category: 'Brand Identity',
-    description: 'Complete brand system for a luxury wellness company.',
-    tags: ['Logo Design', 'Typography', 'Brand Guidelines'],
-    url: '#',
-    featured: true,
-    year: 2024,
+    "id": "ayibuzz-website",
+    "slug": "ayibuzz-website",
+    "title": "Ayibuzz Website",
+    "clientName": "Ayibuzz Média",
+    "category": "Développement Web",
+    "type": "Développement Web",
+    "description": "Plateforme web événementielle sur mesure dotée d'un système natif de billetterie, de gestion d'intervenants et d'une architecture modulable haute performance.",
+    "problem": "Ayibuzz Média faisait face à un défi majeur d'orchestration : l'absence d'une infrastructure propre pour contrôler le flux de réservations et la billetterie de leurs évènements d'envergure. Dépendre de plateformes tierces entraînait une perte de données stratégiques, une expérience utilisateur morcelée et une incapacité à valoriser pleinement l'écosystème de leurs intervenants.",
+    "approach": "Nous avons conçu une architecture numérique hautement modulable et évolutive. Notre méthodologie s'est concentrée sur la fluidification du parcours d'achat, la structuration claire des programmes par sessions thématiques, et la mise en scène éditoriale des profils d'intervenants pour décupler la désirabilité de chaque édition.",
+    "solution": "Déploiement d'une plateforme web haut de gamme intégrant un moteur natif de création d'évènements, un système d'achat de billets fluide et sécurisé, et un annuaire interactif des intervenants. L'interface allie sobriété néo-olympienne et micro-animations réactives pour garantir une conversion immédiate.",
+    "roi": "+350% de réservations directes",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "url": "#",
+    "featured": true,
+    "status": "PUBLISHED",
+    "year": 2024,
+    "liveUrl": "https://ayibuzz-media.com/",
+    "previewType": "iframe",
+    "mode": "live",
+    "hosting": "Vercel",
+    "createdAt": "2026-06-28T03:21:15.385Z"
   },
   {
-    id: 'web-novatech',
-    title: 'NovaTech SaaS Platform',
-    category: 'Web Development',
-    description: 'Full-stack web app for B2B project management.',
-    tags: ['Next.js', 'TypeScript', 'Supabase'],
-    url: '#',
-    featured: true,
-    year: 2024,
-  },
-  {
-    id: 'ui-pulsedash',
-    title: 'PulseDash Analytics UI',
-    category: 'UI/UX Design',
-    description: 'Dashboard redesign increasing user retention by 38%.',
-    tags: ['Figma', 'Design System', 'Data Viz'],
-    url: '#',
-    featured: true,
-    year: 2023,
-  },
-  {
-    id: 'brand-arcvault',
-    title: 'ArcVault Brand Launch',
-    category: 'Brand Identity',
-    description: 'Bold identity for a Web3 asset storage platform.',
-    tags: ['Logo', 'Motion', 'Visual Language'],
-    url: '#',
-    featured: false,
-    year: 2023,
-  },
-  {
-    id: 'web-solarcycle',
-    title: 'SolarCycle E-commerce',
-    category: 'Web Development',
-    description: 'High-conversion Shopify store for sustainable cycling brand.',
-    tags: ['Shopify', 'Custom Theme', 'CRO'],
-    url: '#',
-    featured: false,
-    year: 2023,
-  },
-  {
-    id: 'marketing-meridian',
-    title: 'Meridian Campaign Assets',
-    category: 'Marketing Assets',
-    description: '360° campaign for Q4 product launch — social, print, OOH.',
-    tags: ['Social Media', 'Print', 'Motion Graphics'],
-    url: '#',
-    featured: false,
-    year: 2024,
-  },
+    "id": "xperience",
+    "slug": "xperience",
+    "title": "Xperience",
+    "clientName": "Kez Events",
+    "category": "Développement Web",
+    "type": "Développement Web",
+    "description": "Vitrine événementielle immersive et plateforme de réservation unique fusionnant direction artistique 'Comic Strip', animations dynamiques et architecture UI/UX en 4 temps.",
+    "problem": "Kez Events avait besoin d'une vitrine numérique captivante et singulière pour son évènement phare 'Xperience'. L'objectif était de casser les codes des sites de réservation traditionnels afin d'attirer une audience jeune et exigeante, de susciter une fascination visuelle immédiate et de maximiser la réservation de places en ligne.",
+    "approach": "Nous avons structuré une expérience utilisateur fluide organisée autour d'une architecture maîtresse en 4 sections stratégiques. Cette approche rythmée égrène la valeur de l'évènement de manière séquentielle tout en préservant l'énergie brute et l'identité graphique unique de la marque.",
+    "solution": "Conception et développement d'un site web à forte identité visuelle combinant un moteur de réservation rapide, une ergonomie UI/UX épurée et des animations sur mesure style 'Comic/Dark-Tech'. Le résultat est une immersion sensorielle qui captive l'utilisateur dès les premières secondes.",
+    "roi": "+280% de conversion en réservations",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "url": "#",
+    "featured": true,
+    "status": "PUBLISHED",
+    "year": 2024,
+    "liveUrl": "https://xperience-website-sable.vercel.app/",
+    "previewType": "iframe",
+    "mode": "live",
+    "hosting": "Vercel",
+    "createdAt": "2026-06-28T03:25:58.381Z"
+  }
 ]
 
+// Liste des services stratégiques à forte valeur ajoutée (Copywriting Persuasif)
 export const services: Service[] = [
   {
     id: 'brand-identity',
-    title: 'Brand Identity',
-    description: 'Logos, visual systems, and brand guidelines that mean business.',
+    title: 'Identité de Marque & Positionnement',
+    description: 'Architecture de systèmes visuels et chartes de prestige conçues pour imposer votre autorité et captiver votre marché.',
     icon: 'Palette',
-    highlights: ['Logo & Mark Design', 'Visual Identity System', 'Brand Guidelines'],
+    highlights: ['Design d\'Emblème & Logo Souverain', 'Système d\'Identité Visuelle Globale', 'Directives de Marque & Guidelines'],
   },
   {
     id: 'web-development',
-    title: 'Web Development',
-    description: 'Fast, modern websites and apps built to convert.',
+    title: 'Ingénierie Web Haute Performance',
+    description: 'Développement de plateformes web d\'avant-garde sur-mesure, ultra-rapides et taillées scientifiquement pour la conversion.',
     icon: 'Code',
-    highlights: ['Next.js & React', 'E-commerce & SaaS', 'Performance-first'],
+    highlights: ['Architectures Next.js & TypeScript', 'Applications SaaS & E-Commerce', 'Optimisation & Score Lighthouse 99+'],
   },
   {
     id: 'ui-ux-design',
-    title: 'UI/UX Design',
-    description: 'Interfaces that are beautiful and impossible to leave.',
+    title: 'Design d\'Interface UI/UX d\'Exception',
+    description: 'Conception d\'interfaces immersives et intuitives fusionnant esthétique dark-tech et ergonomie sans friction.',
     icon: 'Figma',
-    highlights: ['Product Design', 'Design Systems', 'User Research'],
+    highlights: ['Design de Produit & Prototypage', 'Design Systems Évolutifs', 'Recherche & Parcours Utilisateur Optimisé'],
   },
   {
     id: 'marketing-assets',
-    title: 'Marketing Assets',
-    description: 'Social, print, and motion assets that stop the scroll.',
+    title: 'Assets & Direction Artistique Marketing',
+    description: 'Création de contenus visuels et motion design à fort impact stratégique pour stopper le scroll et décupler votre désirabilité.',
     icon: 'Megaphone',
-    highlights: ['Social Media', 'Print & OOH', 'Motion Graphics'],
+    highlights: ['Motion Design & Vidéo', 'Supports d\'Événementiel & Print', 'Campagnes Visuelles à Forte Conversion'],
   },
 ]

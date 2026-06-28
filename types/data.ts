@@ -7,13 +7,28 @@ export type ProjectCategory =
 
 export interface Project {
   id: string
+  slug?: string
   title: string
-  category: ProjectCategory
+  clientName?: string
+  type?: string
+  status?: string
+  mode?: string
+  hosting?: string
+  createdAt?: string | Date
+  category: ProjectCategory | string
   description: string
   tags: string[]
   url?: string
   featured: boolean
   year: number
+  // Extensions pour démos en direct et études de cas
+  liveUrl?: string
+  previewType?: 'iframe' | 'image' | 'code' | string
+  problem?: string
+  approach?: string
+  solution?: string
+  roi?: string
+  [key: string]: any
 }
 
 export interface Service {

@@ -84,9 +84,9 @@ export default function OracleSection() {
         if (data.errors) {
           // Concaténation des erreurs de validation Zod par champ
           const messages = Object.values(data.errors).flat().join('. ')
-          throw new Error(messages || 'Validation failed.')
+          throw new Error(messages || 'La validation a échoué.')
         }
-        throw new Error(data.message || 'An error occurred. Please try again.')
+        throw new Error(data.message || 'Une erreur est survenue. Veuillez réessayer.')
       }
 
       setSubmitState('success')
@@ -94,7 +94,7 @@ export default function OracleSection() {
     } catch (err) {
       setSubmitState('error')
       setErrorMessage(
-        err instanceof Error ? err.message : 'Something went wrong. Please try again later.'
+        err instanceof Error ? err.message : 'Une erreur est survenue. Veuillez réessayer plus tard.'
       )
     }
   }
@@ -125,15 +125,18 @@ export default function OracleSection() {
             className="section-eyebrow justify-center flex mb-4"
             style={{ fontFamily: 'var(--font-space-mono)' }}
           >
-            THE ORACLE
+            COLLABORATION STRATÉGIQUE
           </p>
           <h2
             className="section-heading"
             style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
           >
-            Begin the Dialogue
+            Construisons Votre Actif Souverain
           </h2>
           <div className="divider-lime mx-auto mt-4" />
+          <p className="font-sans text-sm md:text-base text-[#A89880] mt-4 leading-relaxed max-w-lg mx-auto">
+            Vous avez un projet ambitieux ou souhaitez imposer une présence visuelle et technique dominante ? Initiions l&apos;échange.
+          </p>
         </div>
 
         {/* Zone formulaire — Centrée max-w-[640px] */}
@@ -151,20 +154,20 @@ export default function OracleSection() {
                 className="text-2xl font-bold text-[#F5EDD8] mb-3"
                 style={{ fontFamily: 'var(--font-playfair), Georgia, serif' }}
               >
-                Message received.
+                Message reçu.
               </h3>
               <p
                 className="font-sans text-sm text-[#A89880] leading-relaxed mb-8"
                 style={{ fontFamily: 'var(--font-geist), sans-serif' }}
               >
-                I&apos;ll be in touch within 24 hours.
+                Je reviendrai vers vous sous 24 heures.
               </p>
               <button
                 onClick={() => setSubmitState('idle')}
                 className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#BEFF39] border-b border-[#BEFF39] pb-1 cursor-pointer"
                 style={{ fontFamily: 'var(--font-space-mono)' }}
               >
-                Send another message &rarr;
+                Envoyer un autre message &rarr;
               </button>
             </div>
           ) : (
@@ -182,7 +185,7 @@ export default function OracleSection() {
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                   />
-                  <span>Full Name</span>
+                  <span>Nom complet</span>
                 </div>
 
                 {/* Champ E-mail (Effet flottant Uiverse) */}
@@ -195,7 +198,7 @@ export default function OracleSection() {
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                   />
-                  <span>Email Address</span>
+                  <span>Adresse e-mail</span>
                 </div>
               </div>
 
@@ -209,7 +212,7 @@ export default function OracleSection() {
                   value={form.subject}
                   onChange={(e) => setForm({ ...form, subject: e.target.value })}
                 />
-                <span>Subject</span>
+                <span>Sujet</span>
               </div>
 
               {/* Champ Message (Effet flottant Uiverse) */}
@@ -232,13 +235,13 @@ export default function OracleSection() {
                 </div>
               )}
 
-              {/* Bouton Soumettre "Summon" */}
+              {/* Bouton Soumettre "Transmettre" */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mt-4">
                 <p
                   className="font-mono text-[9px] uppercase tracking-wider text-[#A89880]/60"
                   style={{ fontFamily: 'var(--font-space-mono)' }}
                 >
-                  Response within 24h &middot; No spam, ever
+                  Réponse sous 24h &middot; Aucun spam, jamais
                 </p>
 
                 <button
@@ -252,10 +255,10 @@ export default function OracleSection() {
                     {submitState === 'loading' ? (
                       <>
                         <span className="inline-block w-3.5 h-3.5 border-2 border-[#050505] border-t-transparent rounded-full animate-spin" />
-                        Summoning...
+                        Envoi en cours...
                       </>
                     ) : (
-                      'Summon'
+                      'Transmettre'
                     )}
                   </span>
                 </button>
